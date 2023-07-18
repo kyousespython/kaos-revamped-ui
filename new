@@ -1,5 +1,5 @@
 
-Domain
+
 
 local Players = game:GetService("Players")
 while not game:GetService("Players").LocalPlayer do
