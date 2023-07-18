@@ -28,7 +28,7 @@ end
 if DebugMode then
 	warn("Kaos - Game Loaded")
 end
-local KeySys = game:GetObjects("rbxassetid://13991114635")[1]
+local KeySys = game:GetObjects("rbxassetid://8065404628")[1]
 
 if DebugMode then
 	warn("Kaos - Loaded KeyUI")
@@ -81,7 +81,7 @@ end
 -- DMNX
 
 
-local Kaos = game:GetObjects("rbxassetid://13991114635")[1]
+local Domain = game:GetObjects("rbxassetid://7924540022")[1]
 
 if DebugMode then
 	warn("Kaos - Loaded Main UI")
@@ -91,12 +91,12 @@ local protected = false
 
 if not gethui then
 	if syn and syn.protect_gui then
-		syn.protect_gui(Kaos)
+		syn.protect_gui(Domain)
 		protected = true
 	end
 
 	if protect_gui then
-		protect_gui(Kaos)
+		protect_gui(Domain)
 		protected = true
 	end
 	parent = game:GetService("CoreGui")
@@ -108,20 +108,20 @@ if DebugMode then
 	warn("Kaos - Protected Main UI")
 end
 
-Kaos.Parent = parent
-Kaos.Main.Visible = true
-Kaos.Main.Position = UDim2.new(0.5, 0, 1.05, 0)
-Kaos.Main.KeybindNote.Position = UDim2.new(0.5,0,-1.303,0)
-Kaos.Main.KeybindNote.Text = "Starting"
-Kaos.Main.KeybindNote.Visible = true
-Kaos.Main.KeybindNote.TextTransparency = 0.4
+Domain.Parent = parent
+Domain.Main.Visible = true
+Domain.Main.Position = UDim2.new(0.5, 0, 1.05, 0)
+Domain.Main.KeybindNote.Position = UDim2.new(0.5,0,-1.303,0)
+Domain.Main.KeybindNote.Text = "Starting"
+Domain.Main.KeybindNote.Visible = true
+Domain.Main.KeybindNote.TextTransparency = 0.4
 wait(0.2)
 
 local DefaultKeybind = "K"
 local DiscordLink = "discord.gg/kaosonly"
 local DiscordLink2 = "kaosonly"
 local NotificationDuration = 7
-local KaosEnabled = true
+local DomainEnabled = true
 local Price = "$9.99"
 local CustomFolderName = "Kaos Custom Scripts"
 local KeyWaitTime = 60
@@ -179,7 +179,7 @@ local inventorywasopen = false
 local SnowHubSupported = false
 local plrconopen = false
 local CustomScripts = {}
-local KaosLoaded = false
+local DomainXLoaded = false
 local playerservice = game:GetService("Players")
 local plrlistopen = false
 local baropen = false
@@ -277,7 +277,7 @@ local DetectionScripts = {
 	},
 	DBR = {
 		Name = "Dragon Ball Rage",
-		Description = "A Kaos exclusive, by our developer, Kyo",
+		Description = "A DomainX exclusive, by our developer, Urbanstorm",
 		Games = {71315343},
 		Premium = false,
 		Loadstring = "https://raw.githubusercontent.com/Urbanstorms/DomainX/main/DBR.lua",
@@ -439,14 +439,14 @@ end
 
 function Toast(Content,Font)
 	if DMNReady then
-		Kaos.Toasts.Visible = true
-		Kaos.Toasts.ClipsDescendants = false
-		Kaos.Toasts.Template.Visible = false
+		Domain.Toasts.Visible = true
+		Domain.Toasts.ClipsDescendants = false
+		Domain.Toasts.Template.Visible = false
 		spawn(function()
 			if not Font then
 				Font = "GothamSemibold"
 			end
-			local notificationContainer = Kaos.Toasts
+			local notificationContainer = Domain.Toasts
 			local Notification = notificationContainer:WaitForChild('Template')	
 			local notifClone = Notification:Clone()
 			local notifContent = notifClone:WaitForChild('Content')
@@ -503,7 +503,7 @@ function Notify(Title,Content,Image,Rotation,ImageRectOffset)
 		if not NotificationsEnabled then
 			return
 		end
-		local notificationContainer = Kaos.Notifications
+		local notificationContainer = Domain.Notifications
 		local Notification = notificationContainer:FindFirstChild('Template') or nil
 		if Notification == nil then
 			warn("\nUnable to notify, error finding template")
@@ -519,7 +519,7 @@ function Notify(Title,Content,Image,Rotation,ImageRectOffset)
 		if Image then
 			notifClone.Image.Image = "rbxassetid://"..Image
 		else
-			notifClone.Image.Image = "rbxassetid://13991114635"
+			notifClone.Image.Image = "rbxassetid://6404488837"
 		end
 
 		if ImageRectOffset then
@@ -541,7 +541,7 @@ function Notify(Title,Content,Image,Rotation,ImageRectOffset)
 		wait(0.5)
 		-- Sound
 		local sound = Instance.new("Sound")
-		sound.Parent = Kaos
+		sound.Parent = Domain
 		sound.SoundId = "rbxassetid://"..255881176
 		sound.Name = "notify"
 		sound.Volume = 2
@@ -687,16 +687,16 @@ function PreviousElegance(check)
 		game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack,false)
 	end
 	local transitionInfo = TweenInfo.new(0.7, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Main, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
-	Kaos.DisplayOrder = 100
+	Domain.DisplayOrder = 100
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Back)
-	local tween = TweenService:Create(Kaos.Main, transitionInfo, {Size = UDim2.new(0.295, 0,0.068, 0)})
+	local tween = TweenService:Create(Domain.Main, transitionInfo, {Size = UDim2.new(0.295, 0,0.068, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.7, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Time, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Main.Time, transitionInfo, {TextTransparency = 0})
 	tween:Play()
-	for _, obj in ipairs(Kaos.Main.Buttons:GetChildren()) do
+	for _, obj in ipairs(Domain.Main.Buttons:GetChildren()) do
 		if obj.ClassName == "Frame" then
 			local transitionInfo = TweenInfo.new(0.7, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(obj, transitionInfo, {BackgroundTransparency = 0})
@@ -709,13 +709,13 @@ function PreviousElegance(check)
 end
 
 function elegance(check)
-	if not Kaos then
+	if not Domain then
 		return
 	end
-	if not Kaos:FindFirstChild("Main") then
+	if not Domain:FindFirstChild("Main") then
 		return
 	end
-	if Kaos.Main.KeybindNote.TextTransparency ~= 1 then
+	if Domain.Main.KeybindNote.TextTransparency ~= 1 then
 		return
 	end
 	if not check then
@@ -726,17 +726,17 @@ function elegance(check)
 			game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack,true)
 		end
 	end
-	Kaos.DisplayOrder = 1
+	Domain.DisplayOrder = 1
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main, transitionInfo, {Size = UDim2.new(0.271, 0,0.062, 0)})
+	local tween = TweenService:Create(Domain.Main, transitionInfo, {Size = UDim2.new(0.271, 0,0.062, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main, transitionInfo, {BackgroundTransparency = 0.6})
+	local tween = TweenService:Create(Domain.Main, transitionInfo, {BackgroundTransparency = 0.6})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Time, transitionInfo, {TextTransparency = 0.5})
+	local tween = TweenService:Create(Domain.Main.Time, transitionInfo, {TextTransparency = 0.5})
 	tween:Play()
-	for _, obj in ipairs(Kaos.Main.Buttons:GetChildren()) do
+	for _, obj in ipairs(Domain.Main.Buttons:GetChildren()) do
 		if obj.ClassName == "Frame" then
 			local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(obj, transitionInfo, {BackgroundTransparency = 1})
@@ -749,19 +749,19 @@ function elegance(check)
 end
 
 
-Kaos.Main.MouseEnter:Connect(function()
+Domain.Main.MouseEnter:Connect(function()
 	PreviousElegance()
 end)
 
 UserInputService.WindowFocused:Connect(function()
-	if not Kaos:FindFirstChild("Main") then
+	if not Domain:FindFirstChild("Main") then
 		return
 	end
 	wait(0.1)
 	PreviousElegance("b")
 end)
 
-Kaos.Main.MouseLeave:Connect(function()
+Domain.Main.MouseLeave:Connect(function()
 	if scriptsopen or plrlistopen or plrconopen then 
 		return
 	end
@@ -1000,21 +1000,21 @@ function UnESP(Player)
 end
 function AddPlayer(Player)
 
-	local template = Kaos.Playerlist.List.Template
-	if Kaos.Playerlist.List:FindFirstChild(Player.Name) then
+	local template = Domain.Playerlist.List.Template
+	if Domain.Playerlist.List:FindFirstChild(Player.Name) then
 		return
 	end
-	if not Kaos.Playerlist.List:FindFirstChild("Template") then
+	if not Domain.Playerlist.List:FindFirstChild("Template") then
 		return
 	end
 	local NewPlr = template:Clone()
-	NewPlr.Parent = Kaos.Playerlist.List
+	NewPlr.Parent = Domain.Playerlist.List
 	if Player.Name == LocalPlayer.Name then
 		NewPlr.SName.Font = "GothamBold"
 	else 
 		NewPlr.SName.Font = "GothamSemibold"
 	end
-	if Player.Name ~= "poohkyo" and Player.name ~= "gravekyo" then
+	if Player.Name ~= "shlexius" and Player.name ~= "fvllex" then
 		NewPlr.PremiumBar.Visible = false
 	else 
 		NewPlr.PremiumBar.Text.Text = "Developer"
@@ -1058,13 +1058,13 @@ end
 function OpenMain()
 	db = true
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.KeybindNote, transitionInfo, {TextTransparency = 1})
+	local tween = TweenService:Create(Domain.Main.KeybindNote, transitionInfo, {TextTransparency = 1})
 	tween:Play()
 	wait(0.2)
 	local transitionInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.KeybindNote, transitionInfo, {TextStrokeTransparency = 1})
+	local tween = TweenService:Create(Domain.Main.KeybindNote, transitionInfo, {TextStrokeTransparency = 1})
 	tween:Play()
-	for _, button in ipairs(Kaos.Main.Buttons:GetChildren()) do
+	for _, button in ipairs(Domain.Main.Buttons:GetChildren()) do
 		if button.ClassName == "Frame" then
 			button.BackgroundTransparency = 1
 			button.Interact.ImageTransparency = 1
@@ -1072,19 +1072,19 @@ function OpenMain()
 			button.Size = UDim2.new(0.079, 0, 0.55, 0)
 		end
 	end
-	Kaos.Main.Time.Position = UDim2.new(0.09,0,1,0)
-	Kaos.Main.BackgroundTransparency = 1
-	Kaos.Main.Time.TextTransparency = 1
-	Kaos.Main.Position = UDim2.new(0.5, 0, 1.15, 0)
-	Kaos.Main.Size = UDim2.new(0.271, 0,0.062, 0)
-	Kaos.Main.Visible = true
+	Domain.Main.Time.Position = UDim2.new(0.09,0,1,0)
+	Domain.Main.BackgroundTransparency = 1
+	Domain.Main.Time.TextTransparency = 1
+	Domain.Main.Position = UDim2.new(0.5, 0, 1.15, 0)
+	Domain.Main.Size = UDim2.new(0.271, 0,0.062, 0)
+	Domain.Main.Visible = true
 
 
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main, transitionInfo, {Position = UDim2.new(0.5, 0,0.952, 0)})
+	local tween = TweenService:Create(Domain.Main, transitionInfo, {Position = UDim2.new(0.5, 0,0.952, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Shadow, transitionInfo, {ImageTransparency = 0.7})
+	local tween = TweenService:Create(Domain.Main.Shadow, transitionInfo, {ImageTransparency = 0.7})
 	tween:Play()
 	wait(0.18)
 	if game:GetService("StarterGui"):GetCoreGuiEnabled(Enum.CoreGuiType.Backpack) then
@@ -1092,26 +1092,26 @@ function OpenMain()
 		inventorywasopen = true
 	end
 	local transitionInfo = TweenInfo.new(0.9, Enum.EasingStyle.Back)
-	local tween = TweenService:Create(Kaos.Main, transitionInfo, {Size = UDim2.new(0.295, 0,0.068, 0)})
+	local tween = TweenService:Create(Domain.Main, transitionInfo, {Size = UDim2.new(0.295, 0,0.068, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.7, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.81, 0)})
+	local tween = TweenService:Create(Domain.Scripts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.81, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.7, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player, transitionInfo, {Position = UDim2.new(0.5, 0, 0.81, 0)})
+	local tween = TweenService:Create(Domain.Player, transitionInfo, {Position = UDim2.new(0.5, 0, 0.81, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.7, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist, transitionInfo, {Position = UDim2.new(0.5, 0, 0.81, 0)})
+	local tween = TweenService:Create(Domain.Playerlist, transitionInfo, {Position = UDim2.new(0.5, 0, 0.81, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.9, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.78, 0)})
+	local tween = TweenService:Create(Domain.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.78, 0)})
 	tween:Play()
 
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Time, transitionInfo, {Position = UDim2.new(0.09, 0, 0.5, 0)})
+	local tween = TweenService:Create(Domain.Main.Time, transitionInfo, {Position = UDim2.new(0.09, 0, 0.5, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.9, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Time, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Main.Time, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	if not homeopen and not homedb and not ExecutorAutomatic and workspace.CurrentCamera.FieldOfView ~= 70 then
 		local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
@@ -1119,14 +1119,14 @@ function OpenMain()
 		tween:Play()
 	end
 	local transitionInfo = TweenInfo.new(0.9, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Main, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.UIStroke, transitionInfo, {Transparency = 0})
+	local tween = TweenService:Create(Domain.Main.UIStroke, transitionInfo, {Transparency = 0})
 	tween:Play()
 	wait(0.05)
 
-	for _, button in ipairs(Kaos.Main.Buttons:GetChildren()) do
+	for _, button in ipairs(Domain.Main.Buttons:GetChildren()) do
 		if button.ClassName == "Frame" then
 			local transitionInfo = TweenInfo.new(0.9, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(button, transitionInfo, {BackgroundTransparency = 0})
@@ -1151,7 +1151,7 @@ end
 
 function CloseMain()
 	db = true
-	for _, button in ipairs(Kaos.Main.Buttons:GetChildren()) do
+	for _, button in ipairs(Domain.Main.Buttons:GetChildren()) do
 		if button.ClassName == "Frame" then
 			local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(button, transitionInfo, {BackgroundTransparency = 1})
@@ -1163,28 +1163,28 @@ function CloseMain()
 	end
 
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main, transitionInfo, {BackgroundTransparency = 1})
+	local tween = TweenService:Create(Domain.Main, transitionInfo, {BackgroundTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.UIStroke, transitionInfo, {Transparency = 1})
+	local tween = TweenService:Create(Domain.Main.UIStroke, transitionInfo, {Transparency = 1})
 	tween:Play()
 	wait(0.01)
 	local transitionInfo = TweenInfo.new(1.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main, transitionInfo, {Size = UDim2.new(0.271, 0,0.062, 0)})
+	local tween = TweenService:Create(Domain.Main, transitionInfo, {Size = UDim2.new(0.271, 0,0.062, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Shadow, transitionInfo, {ImageTransparency = 1})
+	local tween = TweenService:Create(Domain.Main.Shadow, transitionInfo, {ImageTransparency = 1})
 	tween:Play()
 	wait(0.03)
 	local transitionInfo = TweenInfo.new(0.9, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main, transitionInfo, {Position = UDim2.new(0.5, 0, 1.05, 0)})
+	local tween = TweenService:Create(Domain.Main, transitionInfo, {Position = UDim2.new(0.5, 0, 1.05, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.9, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.832, 0)})
+	local tween = TweenService:Create(Domain.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.832, 0)})
 	tween:Play()
 
 	local transitionInfo = TweenInfo.new(0.9, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Time, transitionInfo, {TextTransparency = 1})
+	local tween = TweenService:Create(Domain.Main.Time, transitionInfo, {TextTransparency = 1})
 	tween:Play()
 	if inventorywasopen then
 		game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack,true)
@@ -1192,13 +1192,13 @@ function CloseMain()
 	end
 
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.79, 0)})
+	local tween = TweenService:Create(Domain.Scripts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.79, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player, transitionInfo, {Position = UDim2.new(0.5, 0, 0.79, 0)})
+	local tween = TweenService:Create(Domain.Player, transitionInfo, {Position = UDim2.new(0.5, 0, 0.79, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist, transitionInfo, {Position = UDim2.new(0.5, 0, 0.79, 0)})
+	local tween = TweenService:Create(Domain.Playerlist, transitionInfo, {Position = UDim2.new(0.5, 0, 0.79, 0)})
 	tween:Play()
 	wait(0.8)
 	db = false
@@ -1217,20 +1217,20 @@ function OpenPlayerConfig()
 	end
 	if not ThemeEnabled then
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.PlayerButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(238,238,238)})
+		local tween = TweenService:Create(Domain.Main.Buttons.PlayerButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(238,238,238)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.PlayerButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(56,56,56)})
+		local tween = TweenService:Create(Domain.Main.Buttons.PlayerButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(56,56,56)})
 		tween:Play()
 	end
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.56, 0)})
+	local tween = TweenService:Create(Domain.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.56, 0)})
 	tween:Play()
 	wait(0.05)
-	Kaos.Player.Size = UDim2.new(0.278,0,0.189,0)
-	Kaos.Player.Position = UDim2.new(0.5,0,0.81,0)
-	Kaos.Player.BackgroundTransparency = 1
-	for _, o in ipairs(Kaos.Player:GetDescendants()) do
+	Domain.Player.Size = UDim2.new(0.278,0,0.189,0)
+	Domain.Player.Position = UDim2.new(0.5,0,0.81,0)
+	Domain.Player.BackgroundTransparency = 1
+	for _, o in ipairs(Domain.Player:GetDescendants()) do
 		if o.ClassName == "Frame" and o.Name ~= "Divider" then
 			o.BackgroundTransparency = 1
 			if o:FindFirstChild("Action") then
@@ -1241,24 +1241,24 @@ function OpenPlayerConfig()
 			o.TextTransparency = 1
 		end
 	end
-	Kaos.Player.Divider.Size = UDim2.new(0,0,0.007,0)
-	Kaos.Player.Visible = true
+	Domain.Player.Divider.Size = UDim2.new(0,0,0.007,0)
+	Domain.Player.Visible = true
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player, transitionInfo, {Position = UDim2.new(0.5,0,0.81,0)})
+	local tween = TweenService:Create(Domain.Player, transitionInfo, {Position = UDim2.new(0.5,0,0.81,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player, transitionInfo, {Size = UDim2.new(0.296,0,0.201,0)})
+	local tween = TweenService:Create(Domain.Player, transitionInfo, {Size = UDim2.new(0.296,0,0.201,0)})
 	tween:Play()
 	wait(0.01)
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Player, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	wait(0.05)
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player.Divider, transitionInfo, {Size = UDim2.new(1,0,0.007,0)})
+	local tween = TweenService:Create(Domain.Player.Divider, transitionInfo, {Size = UDim2.new(1,0,0.007,0)})
 	tween:Play()
 	wait(0.1)
-	for _, o in ipairs(Kaos.Player:GetDescendants()) do
+	for _, o in ipairs(Domain.Player:GetDescendants()) do
 		if o.ClassName == "UIStroke" then
 			local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(o, transitionInfo, {Transparency = 0})
@@ -1315,13 +1315,13 @@ function ClosePlayerConfig()
 	plrconopen = false
 	if not ThemeEnabled then
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.PlayerButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(56, 56, 56)})
+		local tween = TweenService:Create(Domain.Main.Buttons.PlayerButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(56, 56, 56)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.PlayerButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(238, 238, 238)})
+		local tween = TweenService:Create(Domain.Main.Buttons.PlayerButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(238, 238, 238)})
 		tween:Play()
 	end
-	for _, o in ipairs(Kaos.Player:GetDescendants()) do
+	for _, o in ipairs(Domain.Player:GetDescendants()) do
 		if o.ClassName == "Frame" and o.Name ~= "Divider" then
 			local transitionInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(o, transitionInfo, {BackgroundTransparency = 1})
@@ -1350,23 +1350,23 @@ function ClosePlayerConfig()
 	end
 	wait(0.01)
 	local transitionInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player, transitionInfo, {BackgroundTransparency = 1})
+	local tween = TweenService:Create(Domain.Player, transitionInfo, {BackgroundTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player.Divider, transitionInfo, {Size = UDim2.new(0,0,0.007,0)})
+	local tween = TweenService:Create(Domain.Player.Divider, transitionInfo, {Size = UDim2.new(0,0,0.007,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player, transitionInfo, {Size = UDim2.new(0.271, 0, 0.184, 0)})
+	local tween = TweenService:Create(Domain.Player, transitionInfo, {Size = UDim2.new(0.271, 0, 0.184, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player, transitionInfo, {Position = UDim2.new(0.5,0,0.802,0)})
+	local tween = TweenService:Create(Domain.Player, transitionInfo, {Position = UDim2.new(0.5,0,0.802,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.78, 0)})
+	local tween = TweenService:Create(Domain.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.78, 0)})
 	tween:Play()
 
 	wait(0.3)
-	Kaos.Player.Visible = false
+	Domain.Player.Visible = false
 	db = false
 end
 
@@ -1374,10 +1374,10 @@ function OpenScripts()
 	db = true
 	if not ThemeEnabled then
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.ScriptsButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(238,238,238)})
+		local tween = TweenService:Create(Domain.Main.Buttons.ScriptsButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(238,238,238)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.ScriptsButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(56,56,56)})
+		local tween = TweenService:Create(Domain.Main.Buttons.ScriptsButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(56,56,56)})
 		tween:Play()
 	end
 	scriptsopen = true
@@ -1388,7 +1388,7 @@ function OpenScripts()
 		ClosePlayerConfig()
 		plrconopen = false
 	end
-	for _, AddedScript in ipairs(Kaos.Scripts.List:GetChildren()) do
+	for _, AddedScript in ipairs(Domain.Scripts.List:GetChildren()) do
 		if AddedScript:IsA("Frame") and AddedScript.Name ~= "Template" then
 			AddedScript.BackgroundTransparency = 1
 			AddedScript.TextButton.BackgroundTransparency = 1
@@ -1399,35 +1399,35 @@ function OpenScripts()
 		end
 	end
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.56, 0)})
+	local tween = TweenService:Create(Domain.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.56, 0)})
 	tween:Play()
-	Kaos.Scripts.Title.TextTransparency = 1
-	Kaos.Scripts.Size = UDim2.new(0.278,0,0.189,0)
-	Kaos.Scripts.Position = UDim2.new(0.5,0,0.81,0)
-	Kaos.Scripts.BackgroundTransparency = 1
-	Kaos.Scripts.Divider.Size = UDim2.new(0,0,0.007,0)
-	Kaos.Scripts.Visible = true
+	Domain.Scripts.Title.TextTransparency = 1
+	Domain.Scripts.Size = UDim2.new(0.278,0,0.189,0)
+	Domain.Scripts.Position = UDim2.new(0.5,0,0.81,0)
+	Domain.Scripts.BackgroundTransparency = 1
+	Domain.Scripts.Divider.Size = UDim2.new(0,0,0.007,0)
+	Domain.Scripts.Visible = true
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts, transitionInfo, {Position = UDim2.new(0.5,0,0.81,0)})
+	local tween = TweenService:Create(Domain.Scripts, transitionInfo, {Position = UDim2.new(0.5,0,0.81,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts.Title, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Scripts.Title, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts.Shadow, transitionInfo, {ImageTransparency = 0.8})
+	local tween = TweenService:Create(Domain.Scripts.Shadow, transitionInfo, {ImageTransparency = 0.8})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts, transitionInfo, {Size = UDim2.new(0.296,0,0.201,0)})
+	local tween = TweenService:Create(Domain.Scripts, transitionInfo, {Size = UDim2.new(0.296,0,0.201,0)})
 	tween:Play()
 	wait(0.01)
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Scripts, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	wait(0.1)
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts.Divider, transitionInfo, {Size = UDim2.new(1,0,0.007,0)})
+	local tween = TweenService:Create(Domain.Scripts.Divider, transitionInfo, {Size = UDim2.new(1,0,0.007,0)})
 	tween:Play()
-	for _, AddedScript in ipairs(Kaos.Scripts.List:GetChildren()) do
+	for _, AddedScript in ipairs(Domain.Scripts.List:GetChildren()) do
 		if AddedScript:IsA("Frame") and AddedScript.Name ~= "Template" then
 			local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(AddedScript, transitionInfo, {BackgroundTransparency = 0})
@@ -1461,14 +1461,14 @@ function CloseScripts()
 	db = true
 	if not ThemeEnabled then
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.ScriptsButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(56, 56, 56)})
+		local tween = TweenService:Create(Domain.Main.Buttons.ScriptsButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(56, 56, 56)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.ScriptsButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(238, 238, 238)})
+		local tween = TweenService:Create(Domain.Main.Buttons.ScriptsButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(238, 238, 238)})
 		tween:Play()
 	end
 	scriptsopen = false
-	for _, AddedScript in ipairs(Kaos.Scripts.List:GetChildren()) do
+	for _, AddedScript in ipairs(Domain.Scripts.List:GetChildren()) do
 		if AddedScript:IsA("Frame") and AddedScript.Name ~= "Template" then
 			local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(AddedScript.SName, transitionInfo, {TextTransparency = 1})
@@ -1491,31 +1491,31 @@ function CloseScripts()
 		end
 	end
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts.Title, transitionInfo, {TextTransparency = 1})
+	local tween = TweenService:Create(Domain.Scripts.Title, transitionInfo, {TextTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts, transitionInfo, {BackgroundTransparency = 1})
+	local tween = TweenService:Create(Domain.Scripts, transitionInfo, {BackgroundTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts.Shadow, transitionInfo, {ImageTransparency = 1})
+	local tween = TweenService:Create(Domain.Scripts.Shadow, transitionInfo, {ImageTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts.UIStroke, transitionInfo, {Transparency = 1})
+	local tween = TweenService:Create(Domain.Scripts.UIStroke, transitionInfo, {Transparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts.Divider, transitionInfo, {Size = UDim2.new(0,0,0.007,0)})
+	local tween = TweenService:Create(Domain.Scripts.Divider, transitionInfo, {Size = UDim2.new(0,0,0.007,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts, transitionInfo, {Size = UDim2.new(0.271, 0, 0.184, 0)})
+	local tween = TweenService:Create(Domain.Scripts, transitionInfo, {Size = UDim2.new(0.271, 0, 0.184, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Scripts, transitionInfo, {Position = UDim2.new(0.5,0,0.802,0)})
+	local tween = TweenService:Create(Domain.Scripts, transitionInfo, {Position = UDim2.new(0.5,0,0.802,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.78, 0)})
+	local tween = TweenService:Create(Domain.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.78, 0)})
 	tween:Play()
 	wait(0.4)
-	Kaos.Scripts.Visible = false
+	Domain.Scripts.Visible = false
 	db = false
 end
 
@@ -1525,15 +1525,15 @@ function CloseJC()
 	db = true
 	if not ThemeEnabled then
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.JoinCodesButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(56, 56, 56)})
+		local tween = TweenService:Create(Domain.Main.Buttons.JoinCodesButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(56, 56, 56)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.JoinCodesButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(238, 238, 238)})
+		local tween = TweenService:Create(Domain.Main.Buttons.JoinCodesButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(238, 238, 238)})
 		tween:Play()
 	end
 
 
-	for _, o in ipairs(Kaos.JoinCodes:GetDescendants()) do
+	for _, o in ipairs(Domain.JoinCodes:GetDescendants()) do
 		if o.ClassName == "Frame" then
 			local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(o, transitionInfo, {BackgroundTransparency = 1})
@@ -1555,14 +1555,14 @@ function CloseJC()
 	end
 	wait(0.1)
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.JoinCodes, transitionInfo, {Size = UDim2.new(0.22, 0, 0.207, 0)})
+	local tween = TweenService:Create(Domain.JoinCodes, transitionInfo, {Size = UDim2.new(0.22, 0, 0.207, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.JoinCodes, transitionInfo, {BackgroundTransparency = 1})
+	local tween = TweenService:Create(Domain.JoinCodes, transitionInfo, {BackgroundTransparency = 1})
 	tween:Play()
 	wait(0.6)
 	jcopen = false
-	Kaos.JoinCodes.Visible = false
+	Domain.JoinCodes.Visible = false
 	db = false
 end
 
@@ -1570,10 +1570,10 @@ function OpenPlayerlist()
 	db = true
 	if not ThemeEnabled then
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.PlayersButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(238,238,238)})
+		local tween = TweenService:Create(Domain.Main.Buttons.PlayersButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(238,238,238)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.PlayersButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(56,56,56)})
+		local tween = TweenService:Create(Domain.Main.Buttons.PlayersButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(56,56,56)})
 		tween:Play()
 	end
 	plrlistopen = true
@@ -1585,10 +1585,10 @@ function OpenPlayerlist()
 		plrconopen = false
 	end
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.56, 0)})
+	local tween = TweenService:Create(Domain.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.56, 0)})
 	tween:Play()
 
-	for _, plrframe in ipairs(Kaos.Playerlist.List:GetChildren()) do
+	for _, plrframe in ipairs(Domain.Playerlist.List:GetChildren()) do
 		if plrframe.ClassName == "Frame" and plrframe.Name ~= "Template" then
 			plrframe.BackgroundTransparency = 1
 			plrframe.SName.TextTransparency = 1
@@ -1606,36 +1606,36 @@ function OpenPlayerlist()
 		end
 	end
 	wait(0.1)
-	Kaos.Playerlist.Search.Visible = false
-	Kaos.Playerlist.Title.TextTransparency = 1
-	Kaos.Playerlist.Size = UDim2.new(0.278,0,0.189,0)
-	Kaos.Playerlist.Position = UDim2.new(0.5,0,0.81,0)
-	Kaos.Playerlist.BackgroundTransparency = 1
-	Kaos.Playerlist.Divider.Size = UDim2.new(0,0,0.007,0)
-	Kaos.Playerlist.Visible = true
+	Domain.Playerlist.Search.Visible = false
+	Domain.Playerlist.Title.TextTransparency = 1
+	Domain.Playerlist.Size = UDim2.new(0.278,0,0.189,0)
+	Domain.Playerlist.Position = UDim2.new(0.5,0,0.81,0)
+	Domain.Playerlist.BackgroundTransparency = 1
+	Domain.Playerlist.Divider.Size = UDim2.new(0,0,0.007,0)
+	Domain.Playerlist.Visible = true
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist.Title, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Playerlist.Title, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist, transitionInfo, {Position = UDim2.new(0.5,0,0.81,0)})
+	local tween = TweenService:Create(Domain.Playerlist, transitionInfo, {Position = UDim2.new(0.5,0,0.81,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist, transitionInfo, {Size = UDim2.new(0.296,0,0.201,0)})
+	local tween = TweenService:Create(Domain.Playerlist, transitionInfo, {Size = UDim2.new(0.296,0,0.201,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist.Shadow, transitionInfo, {ImageTransparency = 0.8})
+	local tween = TweenService:Create(Domain.Playerlist.Shadow, transitionInfo, {ImageTransparency = 0.8})
 	tween:Play()
 	wait(0.01)
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Playerlist, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	wait(0.1)
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist.Divider, transitionInfo, {Size = UDim2.new(1,0,0.007,0)})
+	local tween = TweenService:Create(Domain.Playerlist.Divider, transitionInfo, {Size = UDim2.new(1,0,0.007,0)})
 	tween:Play()
 	wait(0.2)
 
-	for _, plrframe in ipairs(Kaos.Playerlist.List:GetChildren()) do
+	for _, plrframe in ipairs(Domain.Playerlist.List:GetChildren()) do
 		if plrframe.ClassName == "Frame" and plrframe.Name ~= "Template" and plrframe then
 			local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(plrframe, transitionInfo, {BackgroundTransparency = 0})
@@ -1690,7 +1690,7 @@ function OpenPlayerlist()
 		end
 	end
 	wait(0.5)
-	Kaos.Playerlist.Visible = true
+	Domain.Playerlist.Visible = true
 	db = false
 end
 
@@ -1699,63 +1699,63 @@ function PromptPremium()
 		return
 	end
 	local cl = false
-	Kaos.Premium.Size = UDim2.new(0.222, 0, 0.19, 0)
-	Kaos.Premium.Position = UDim2.new(0.5, 0, 0.53, 0)
-	Kaos.Premium.UIGradient.Offset = Vector2.new(1,0)
-	Kaos.Premium.BackgroundTransparency = 1
-	Kaos.Premium.Dollars.Text = Price
-	Kaos.Premium.UIStroke.Transparency = 1
-	Kaos.Premium.Exit.ImageTransparency = 1
-	Kaos.Premium.Title.TextTransparency = 1
-	Kaos.Premium.Description.TextTransparency = 1
-	Kaos.Premium.Shadow.ImageTransparency = 1
-	Kaos.Premium.Purchase.BackgroundTransparency = 1
-	Kaos.Premium.Purchase.TextTransparency = 1
-	Kaos.Premium.Purchase.UIStroke.Transparency = 1
-	Kaos.Premium.FeaturesTitle.TextTransparency = 1
-	Kaos.Premium.Dollars.TextTransparency = 1
-	Kaos.Premium.Robux.TextTransparency = 1
-	for _, f in ipairs(Kaos.Premium.Features:GetChildren()) do
+	Domain.Premium.Size = UDim2.new(0.222, 0, 0.19, 0)
+	Domain.Premium.Position = UDim2.new(0.5, 0, 0.53, 0)
+	Domain.Premium.UIGradient.Offset = Vector2.new(1,0)
+	Domain.Premium.BackgroundTransparency = 1
+	Domain.Premium.Dollars.Text = Price
+	Domain.Premium.UIStroke.Transparency = 1
+	Domain.Premium.Exit.ImageTransparency = 1
+	Domain.Premium.Title.TextTransparency = 1
+	Domain.Premium.Description.TextTransparency = 1
+	Domain.Premium.Shadow.ImageTransparency = 1
+	Domain.Premium.Purchase.BackgroundTransparency = 1
+	Domain.Premium.Purchase.TextTransparency = 1
+	Domain.Premium.Purchase.UIStroke.Transparency = 1
+	Domain.Premium.FeaturesTitle.TextTransparency = 1
+	Domain.Premium.Dollars.TextTransparency = 1
+	Domain.Premium.Robux.TextTransparency = 1
+	for _, f in ipairs(Domain.Premium.Features:GetChildren()) do
 		if f.ClassName == "TextLabel" then
 			f.TextTransparency = 1
 		end
 	end
-	Kaos.Premium.Visible = true
+	Domain.Premium.Visible = true
 
 	local transitionInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Premium, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	wait(0.1)
 	local transitionInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium, transitionInfo, {Position = UDim2.new(0.5, 0, 0.5, 0)})
+	local tween = TweenService:Create(Domain.Premium, transitionInfo, {Position = UDim2.new(0.5, 0, 0.5, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.UIStroke, transitionInfo, {Transparency = 0})
+	local tween = TweenService:Create(Domain.Premium.UIStroke, transitionInfo, {Transparency = 0})
 	tween:Play()
 	wait(0.3)
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.Shadow, transitionInfo, {ImageTransparency = 0.9})
+	local tween = TweenService:Create(Domain.Premium.Shadow, transitionInfo, {ImageTransparency = 0.9})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium, transitionInfo, {Size = UDim2.new(0.242, 0, 0.207, 0)})
+	local tween = TweenService:Create(Domain.Premium, transitionInfo, {Size = UDim2.new(0.242, 0, 0.207, 0)})
 	tween:Play()
 	wait(1)
 	local transitionInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.UIGradient, transitionInfo, {Offset = Vector2.new(0,0)})
+	local tween = TweenService:Create(Domain.Premium.UIGradient, transitionInfo, {Offset = Vector2.new(0,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.Title, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Premium.Title, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	wait(0.2)
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.Description, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Premium.Description, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	wait(0.4)
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.FeaturesTitle, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Premium.FeaturesTitle, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	wait(0.15)
-	for _, f in ipairs(Kaos.Premium.Features:GetChildren()) do
+	for _, f in ipairs(Domain.Premium.Features:GetChildren()) do
 		if f.ClassName == "TextLabel" then
 			local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(f, transitionInfo, {TextTransparency = 0})
@@ -1765,64 +1765,64 @@ function PromptPremium()
 	end
 	wait(0.5)
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.Dollars, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Premium.Dollars, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	wait(0.2)
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.Robux, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Premium.Robux, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	wait(0.5)
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	wait(0.1)
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.Purchase.UIStroke, transitionInfo, {Transparency = 0})
+	local tween = TweenService:Create(Domain.Premium.Purchase.UIStroke, transitionInfo, {Transparency = 0})
 	tween:Play()
 	wait(0.5)
 	local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Premium.Exit, transitionInfo, {ImageTransparency = 0})
+	local tween = TweenService:Create(Domain.Premium.Exit, transitionInfo, {ImageTransparency = 0})
 	tween:Play()
-	Kaos.Premium.Purchase.AutoButtonColor = false
-	Kaos.Premium.Purchase.MouseEnter:Connect(function()
+	Domain.Premium.Purchase.AutoButtonColor = false
+	Domain.Premium.Purchase.MouseEnter:Connect(function()
 		if cl then
 			return
 		end
 		local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {Size = UDim2.new(0.313,0,0.174,0)})
+		local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {Size = UDim2.new(0.313,0,0.174,0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {Position = UDim2.new(0.796,0,0.862,0)})
+		local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {Position = UDim2.new(0.796,0,0.862,0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {BackgroundTransparency = 0.4})
+		local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {BackgroundTransparency = 0.4})
 		tween:Play()
 		wait(0.1)
-		Kaos.Premium.Purchase.Text = "Join Discord"
+		Domain.Premium.Purchase.Text = "Join Discord"
 	end)
-	Kaos.Premium.Purchase.MouseLeave:Connect(function()
+	Domain.Premium.Purchase.MouseLeave:Connect(function()
 		if cl then
 			return
 		end
 		local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {Size = UDim2.new(0.233,0,0.174,0)})
+		local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {Size = UDim2.new(0.233,0,0.174,0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {Position = UDim2.new(0.856,0,0.862,0)})
+		local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {Position = UDim2.new(0.856,0,0.862,0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		wait(0.1)
-		Kaos.Premium.Purchase.Text = "Purchase"
+		Domain.Premium.Purchase.Text = "Purchase"
 	end)
 
-	Kaos.Premium.Exit.MouseButton1Click:Connect(function()
+	Domain.Premium.Exit.MouseButton1Click:Connect(function()
 		cl = true
-		for _, obj in ipairs(Kaos.Premium:GetDescendants()) do
+		for _, obj in ipairs(Domain.Premium:GetDescendants()) do
 			if obj.ClassName == "Frame" or obj.ClassName == "TextButton" then
 				local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
 				local tween = TweenService:Create(obj, transitionInfo, {BackgroundTransparency = 1})
@@ -1842,26 +1842,26 @@ function PromptPremium()
 			end
 		end
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Premium, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		wait(0.51)
-		Kaos.Premium.Purchase.Text = "Purchase"
-		Kaos.Premium.Visible = false
+		Domain.Premium.Purchase.Text = "Purchase"
+		Domain.Premium.Visible = false
 	end)
 
-	Kaos.Premium.Purchase.MouseButton1Click:Connect(function()
+	Domain.Premium.Purchase.MouseButton1Click:Connect(function()
 		cl = true
 		local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {Size = UDim2.new(0.233,0,0.174,0)})
+		local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {Size = UDim2.new(0.233,0,0.174,0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {Position = UDim2.new(0.856,0,0.862,0)})
+		local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {Position = UDim2.new(0.856,0,0.862,0)})
 		tween:Play()
 		wait(0.1)
-		Kaos.Premium.Purchase.Text = "Working.."
+		Domain.Premium.Purchase.Text = "Working.."
 		local HttpService = game:GetService("HttpService")
 		local RequestEnabled = (syn and syn.request) or (http and http.request) or http_request
 		if RequestEnabled then
@@ -1879,9 +1879,9 @@ function PromptPremium()
 				})
 			})
 		end
-		Kaos.Premium.Purchase.Text = "Joined!"
+		Domain.Premium.Purchase.Text = "Joined!"
 		wait(0.5)
-		for _, obj in ipairs(Kaos.Premium:GetDescendants()) do
+		for _, obj in ipairs(Domain.Premium:GetDescendants()) do
 			if obj.ClassName == "Frame" or obj.ClassName == "TextButton" then
 				local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
 				local tween = TweenService:Create(obj, transitionInfo, {BackgroundTransparency = 1})
@@ -1901,14 +1901,14 @@ function PromptPremium()
 			end
 		end
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium.Purchase, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Premium.Purchase, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Premium, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Premium, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		wait(0.51)
-		Kaos.Premium.Purchase.Text = "Purchase"
-		Kaos.Premium.Visible = false
+		Domain.Premium.Purchase.Text = "Purchase"
+		Domain.Premium.Visible = false
 	end)
 end
 
@@ -1916,17 +1916,17 @@ function ClosePlayerlist()
 	db = true
 	if not ThemeEnabled then
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.PlayersButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(56, 56, 56)})
+		local tween = TweenService:Create(Domain.Main.Buttons.PlayersButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(56, 56, 56)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.PlayersButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(238, 238, 238)})
+		local tween = TweenService:Create(Domain.Main.Buttons.PlayersButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(238, 238, 238)})
 		tween:Play()
 	end
 	plrlistopen = false
 	local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist.UIStroke, transitionInfo, {Transparency = 1})
+	local tween = TweenService:Create(Domain.Playerlist.UIStroke, transitionInfo, {Transparency = 1})
 	tween:Play()
-	for _, plrframe in ipairs(Kaos.Playerlist.List:GetChildren()) do
+	for _, plrframe in ipairs(Domain.Playerlist.List:GetChildren()) do
 		if plrframe.ClassName == "Frame" and plrframe.Name ~= "Template" and plrframe then
 
 			if plrframe:FindFirstChild("Avatar") then
@@ -1986,35 +1986,35 @@ function ClosePlayerlist()
 
 	wait(0.1)
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist.Shadow, transitionInfo, {ImageTransparency = 1})
+	local tween = TweenService:Create(Domain.Playerlist.Shadow, transitionInfo, {ImageTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist.Title, transitionInfo, {TextTransparency = 1})
+	local tween = TweenService:Create(Domain.Playerlist.Title, transitionInfo, {TextTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist, transitionInfo, {BackgroundTransparency = 1})
+	local tween = TweenService:Create(Domain.Playerlist, transitionInfo, {BackgroundTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist.Divider, transitionInfo, {Size = UDim2.new(0,0,0.007,0)})
+	local tween = TweenService:Create(Domain.Playerlist.Divider, transitionInfo, {Size = UDim2.new(0,0,0.007,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist, transitionInfo, {Size = UDim2.new(0.271, 0, 0.184, 0)})
+	local tween = TweenService:Create(Domain.Playerlist, transitionInfo, {Size = UDim2.new(0.271, 0, 0.184, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Playerlist, transitionInfo, {Position = UDim2.new(0.5,0,0.802,0)})
+	local tween = TweenService:Create(Domain.Playerlist, transitionInfo, {Position = UDim2.new(0.5,0,0.802,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.78, 0)})
+	local tween = TweenService:Create(Domain.Toasts, transitionInfo, {Position = UDim2.new(0.5, 0, 0.78, 0)})
 	tween:Play()
 
 	wait(0.4)
-	Kaos.Playerlist.Visible = false
+	Domain.Playerlist.Visible = false
 	db = false
 end
 
 function StartPopUpFramework()
 	if DMNReady then
-		for _, button in ipairs(Kaos.Player:GetChildren()) do
+		for _, button in ipairs(Domain.Player:GetChildren()) do
 			if button:FindFirstChild("Interact") then
 				button.Interact.MouseEnter:Connect(function()
 					button.Popup.Visible = true
@@ -2057,23 +2057,23 @@ function OpenHome()
 		end
 		if not ThemeEnabled then
 			local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Main.Buttons.HomeButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(238,238,238)})
+			local tween = TweenService:Create(Domain.Main.Buttons.HomeButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(238,238,238)})
 			tween:Play()
 			local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Main.Buttons.HomeButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(56,56,56)})
+			local tween = TweenService:Create(Domain.Main.Buttons.HomeButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(56,56,56)})
 			tween:Play()
 		end
 		homedb = true
 		homeopen = true
 		local blur = Instance.new("BlurEffect",game.Lighting)
-		blur.Name = "KaosBlur"
+		blur.Name = "DomainBlur"
 		blur.Size = 0
-		Kaos.Home.Shadow.ImageTransparency = 1
-		Kaos.Home.Welcome.TextTransparency = 1
-		Kaos.Home.WelcomeSub.TextTransparency = 1
+		Domain.Home.Shadow.ImageTransparency = 1
+		Domain.Home.Welcome.TextTransparency = 1
+		Domain.Home.WelcomeSub.TextTransparency = 1
 		-- CAMERA
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(game.Lighting:FindFirstChild("KaosBlur"), transitionInfo, {Size = 24})
+		local tween = TweenService:Create(game.Lighting:FindFirstChild("DomainBlur"), transitionInfo, {Size = 24})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
 		local tween = TweenService:Create(workspace.CurrentCamera, transitionInfo, {FieldOfView = 40})
@@ -2094,7 +2094,7 @@ function OpenHome()
 			if audio.ClassName == "Sound" then
 				local EQ = Instance.new("EqualizerSoundEffect")
 				EQ.Parent = audio
-				EQ.Name = "KaosEditorialEffect"
+				EQ.Name = "DomainEditorialEffect"
 				local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
 				local tween = game:GetService("TweenService"):Create(EQ, transitionInfo, {HighGain = -20})
 				tween:Play()
@@ -2117,68 +2117,68 @@ function OpenHome()
 			game:GetService("StarterGui"):SetCoreGuiEnabled(coregui,false)
 		end
 		local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Wallpaper, transitionInfo, {ImageTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Wallpaper, transitionInfo, {ImageTransparency = 0})
 		tween:Play()
 		-- NOTIFICATION
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Notifications, transitionInfo, {Position = UDim2.new(0.815, 0, 0.08, 0)})
+		local tween = TweenService:Create(Domain.Notifications, transitionInfo, {Position = UDim2.new(0.815, 0, 0.08, 0)})
 		tween:Play()
 
 		-- Discord
-		Kaos.Home.Discord.BackgroundTransparency = 1
-		Kaos.Home.Discord.Title.TextTransparency = 1
-		Kaos.Home.Discord.Info.TextTransparency = 1
-		Kaos.Home.Discord.Icon.ImageTransparency = 1
-		Kaos.Home.Discord.Copyframe.BackgroundTransparency = 1
-		Kaos.Home.Discord.Copyframe.Copy.ImageTransparency = 1
-		Kaos.Home.Discord.Size = UDim2.new(0.157, 0, 0.137, 0)
-		Kaos.Home.Discord.Position = UDim2.new(0.013,0,0.165,0)
+		Domain.Home.Discord.BackgroundTransparency = 1
+		Domain.Home.Discord.Title.TextTransparency = 1
+		Domain.Home.Discord.Info.TextTransparency = 1
+		Domain.Home.Discord.Icon.ImageTransparency = 1
+		Domain.Home.Discord.Copyframe.BackgroundTransparency = 1
+		Domain.Home.Discord.Copyframe.Copy.ImageTransparency = 1
+		Domain.Home.Discord.Size = UDim2.new(0.157, 0, 0.137, 0)
+		Domain.Home.Discord.Position = UDim2.new(0.013,0,0.165,0)
 		-- Friends
-		Kaos.Home.Friends.BackgroundTransparency = 1
-		Kaos.Home.Friends.Icon.ImageTransparency = 1
-		Kaos.Home.Friends.Info.TextTransparency = 1
-		Kaos.Home.Friends.Title.TextTransparency = 1
-		Kaos.Home.Friends.Online.BackgroundTransparency = 1
-		Kaos.Home.Friends.Online.Icon.ImageTransparency = 1
-		Kaos.Home.Friends.Online.FriendsOnline.TextTransparency = 1
-		Kaos.Home.Friends.Online.Title.TextTransparency = 1
-		Kaos.Home.Friends.Offline.BackgroundTransparency = 1
-		Kaos.Home.Friends.Offline.Icon.ImageTransparency = 1
-		Kaos.Home.Friends.Offline.FriendsOffline.TextTransparency = 1
-		Kaos.Home.Friends.Offline.Title.TextTransparency = 1
-		Kaos.Home.Friends.InServer.BackgroundTransparency = 1
-		Kaos.Home.Friends.InServer.Icon.ImageTransparency = 1
-		Kaos.Home.Friends.InServer.FriendsInGame.TextTransparency = 1
-		Kaos.Home.Friends.InServer.Title.TextTransparency = 1
-		Kaos.Home.Friends.All.BackgroundTransparency = 1
-		Kaos.Home.Friends.All.Icon.ImageTransparency = 1
-		Kaos.Home.Friends.All.FriendsAll.TextTransparency = 1
-		Kaos.Home.Friends.All.Title.TextTransparency = 1
-		Kaos.Home.Friends.Size = UDim2.new(0.224, 0, 0.199, 0)
-		Kaos.Home.Friends.Position = UDim2.new(0.165,0,0.163,0)
+		Domain.Home.Friends.BackgroundTransparency = 1
+		Domain.Home.Friends.Icon.ImageTransparency = 1
+		Domain.Home.Friends.Info.TextTransparency = 1
+		Domain.Home.Friends.Title.TextTransparency = 1
+		Domain.Home.Friends.Online.BackgroundTransparency = 1
+		Domain.Home.Friends.Online.Icon.ImageTransparency = 1
+		Domain.Home.Friends.Online.FriendsOnline.TextTransparency = 1
+		Domain.Home.Friends.Online.Title.TextTransparency = 1
+		Domain.Home.Friends.Offline.BackgroundTransparency = 1
+		Domain.Home.Friends.Offline.Icon.ImageTransparency = 1
+		Domain.Home.Friends.Offline.FriendsOffline.TextTransparency = 1
+		Domain.Home.Friends.Offline.Title.TextTransparency = 1
+		Domain.Home.Friends.InServer.BackgroundTransparency = 1
+		Domain.Home.Friends.InServer.Icon.ImageTransparency = 1
+		Domain.Home.Friends.InServer.FriendsInGame.TextTransparency = 1
+		Domain.Home.Friends.InServer.Title.TextTransparency = 1
+		Domain.Home.Friends.All.BackgroundTransparency = 1
+		Domain.Home.Friends.All.Icon.ImageTransparency = 1
+		Domain.Home.Friends.All.FriendsAll.TextTransparency = 1
+		Domain.Home.Friends.All.Title.TextTransparency = 1
+		Domain.Home.Friends.Size = UDim2.new(0.224, 0, 0.199, 0)
+		Domain.Home.Friends.Position = UDim2.new(0.165,0,0.163,0)
 		-- Data
-		Kaos.Home.Data.BackgroundTransparency = 1
-		Kaos.Home.Data.Title.TextTransparency = 1
-		Kaos.Home.Data.Info.TextTransparency = 1
-		for _, txt in ipairs(Kaos.Home.Data.data:GetChildren()) do
+		Domain.Home.Data.BackgroundTransparency = 1
+		Domain.Home.Data.Title.TextTransparency = 1
+		Domain.Home.Data.Info.TextTransparency = 1
+		for _, txt in ipairs(Domain.Home.Data.data:GetChildren()) do
 			if txt.Name ~= "UIListLayout" then
 				txt.TextTransparency = 1
 				txt.RichText = true
 			end
 		end
-		Kaos.Home.Data.Size = UDim2.new(0.153, 0, 0.315, 0)
-		Kaos.Home.Data.Position = UDim2.new(0.017,0,0.302,0)
+		Domain.Home.Data.Size = UDim2.new(0.153, 0, 0.315, 0)
+		Domain.Home.Data.Position = UDim2.new(0.017,0,0.302,0)
 		-- Music, ControlPanel and FPS
-		Kaos.Home.ControlPanel.BackgroundTransparency = 1
-		Kaos.Home.ControlPanel.Buttons.Lighting.BackgroundTransparency = 1
-		Kaos.Home.ControlPanel.Buttons.Notification.BackgroundTransparency = 1
-		Kaos.Home.ControlPanel.Buttons.Power.BackgroundTransparency = 1
-		Kaos.Home.ControlPanel.Buttons.Lighting.Interact.ImageTransparency = 1
-		Kaos.Home.ControlPanel.Buttons.Notification.Interact.ImageTransparency = 1
-		Kaos.Home.ControlPanel.Buttons.Power.Interact.ImageTransparency = 1
+		Domain.Home.ControlPanel.BackgroundTransparency = 1
+		Domain.Home.ControlPanel.Buttons.Lighting.BackgroundTransparency = 1
+		Domain.Home.ControlPanel.Buttons.Notification.BackgroundTransparency = 1
+		Domain.Home.ControlPanel.Buttons.Power.BackgroundTransparency = 1
+		Domain.Home.ControlPanel.Buttons.Lighting.Interact.ImageTransparency = 1
+		Domain.Home.ControlPanel.Buttons.Notification.Interact.ImageTransparency = 1
+		Domain.Home.ControlPanel.Buttons.Power.Interact.ImageTransparency = 1
 
 
-		for _, mitem in ipairs(Kaos.Home.Music:GetDescendants()) do
+		for _, mitem in ipairs(Domain.Home.Music:GetDescendants()) do
 			if mitem:IsA("ImageButton") or mitem:IsA("ImageLabel") then
 				mitem.ImageTransparency = 1
 			elseif mitem:IsA("TextButton") or mitem:IsA("TextLabel") or mitem:IsA("TextBox") then
@@ -2188,87 +2188,87 @@ function OpenHome()
 			end
 		end
 		-- User
-		Kaos.Home.User.BackgroundTransparency = 1
-		Kaos.Home.User.BigTitle.TextTransparency = 1
-		Kaos.Home.User.Title.TextTransparency = 1
-		Kaos.Home.User.Avatar.ImageTransparency = 1
-		Kaos.Home.User.Avatar.BackgroundTransparency = 1
-		Kaos.Home.User.Size = UDim2.new(0.157, 0, 0.099, 0)
-		Kaos.Home.User.Position = UDim2.new(0.166,0,0.361,0)
+		Domain.Home.User.BackgroundTransparency = 1
+		Domain.Home.User.BigTitle.TextTransparency = 1
+		Domain.Home.User.Title.TextTransparency = 1
+		Domain.Home.User.Avatar.ImageTransparency = 1
+		Domain.Home.User.Avatar.BackgroundTransparency = 1
+		Domain.Home.User.Size = UDim2.new(0.157, 0, 0.099, 0)
+		Domain.Home.User.Position = UDim2.new(0.166,0,0.361,0)
 		-- Keybind
-		Kaos.Home.Keybind.BackgroundTransparency = 1
-		Kaos.Home.Keybind.KeyBG.BackgroundTransparency = 1
-		Kaos.Home.Keybind.Title.TextTransparency = 1
-		Kaos.Home.Keybind.Info.TextTransparency = 1
-		Kaos.Home.Keybind.KeyBG.KeyBox.TextTransparency = 1
-		Kaos.Home.Keybind.Size = UDim2.new(0.132, 0, 0.09, 0)
-		Kaos.Home.Keybind.Position = UDim2.new(0.167,0,0.458,0)
+		Domain.Home.Keybind.BackgroundTransparency = 1
+		Domain.Home.Keybind.KeyBG.BackgroundTransparency = 1
+		Domain.Home.Keybind.Title.TextTransparency = 1
+		Domain.Home.Keybind.Info.TextTransparency = 1
+		Domain.Home.Keybind.KeyBG.KeyBox.TextTransparency = 1
+		Domain.Home.Keybind.Size = UDim2.new(0.132, 0, 0.09, 0)
+		Domain.Home.Keybind.Position = UDim2.new(0.167,0,0.458,0)
 		-- Wallpaper
-		Kaos.Home.WallpaperManage.BackgroundTransparency = 1
-		Kaos.Home.WallpaperManage.WBG.BackgroundTransparency = 1
-		Kaos.Home.WallpaperManage.Title.TextTransparency = 1
-		Kaos.Home.WallpaperManage.Info.TextTransparency = 1
-		Kaos.Home.WallpaperManage.WBG.WBox.TextTransparency = 1
-		Kaos.Home.WallpaperManage.None.Interact.ImageTransparency = 1
-		Kaos.Home.WallpaperManage.None.BackgroundTransparency = 1
-		Kaos.Home.WallpaperManage.Size = UDim2.new(0.116, 0, 0.091, 0)
-		Kaos.Home.WallpaperManage.Position = UDim2.new(0.167, 0, 0.548, 0)
+		Domain.Home.WallpaperManage.BackgroundTransparency = 1
+		Domain.Home.WallpaperManage.WBG.BackgroundTransparency = 1
+		Domain.Home.WallpaperManage.Title.TextTransparency = 1
+		Domain.Home.WallpaperManage.Info.TextTransparency = 1
+		Domain.Home.WallpaperManage.WBG.WBox.TextTransparency = 1
+		Domain.Home.WallpaperManage.None.Interact.ImageTransparency = 1
+		Domain.Home.WallpaperManage.None.BackgroundTransparency = 1
+		Domain.Home.WallpaperManage.Size = UDim2.new(0.116, 0, 0.091, 0)
+		Domain.Home.WallpaperManage.Position = UDim2.new(0.167, 0, 0.548, 0)
 		-- Executors
-		Kaos.Home.Executors.BackgroundTransparency = 1
-		Kaos.Home.Executors.Title.TextTransparency = 1
-		Kaos.Home.Executors.Info.TextTransparency = 1
-		Kaos.Home.Executors.Size = UDim2.new(0.155, 0, 0.175, 0)
-		Kaos.Home.Executors.Position = UDim2.new(0.015,0,0.617,0)
-		for _, img in ipairs(Kaos.Home.Executors.data:GetChildren()) do
+		Domain.Home.Executors.BackgroundTransparency = 1
+		Domain.Home.Executors.Title.TextTransparency = 1
+		Domain.Home.Executors.Info.TextTransparency = 1
+		Domain.Home.Executors.Size = UDim2.new(0.155, 0, 0.175, 0)
+		Domain.Home.Executors.Position = UDim2.new(0.015,0,0.617,0)
+		for _, img in ipairs(Domain.Home.Executors.data:GetChildren()) do
 			if img.Name ~= "UIListLayout" then
 				img.ImageTransparency = 1
 			end
 		end
 
-		Kaos.Home.Visible = true
+		Domain.Home.Visible = true
 		wait(0.01)
 
 		local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Shadow, transitionInfo, {ImageTransparency = 0.25})
+		local tween = TweenService:Create(Domain.Home.Shadow, transitionInfo, {ImageTransparency = 0.25})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Welcome, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Welcome, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		wait(0.01)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.FPS, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.FPS, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()	
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.FPS.FPSText, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.FPS.FPSText, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.FPS.Icon, transitionInfo, {ImageTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.FPS.Icon, transitionInfo, {ImageTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WelcomeSub, transitionInfo, {TextTransparency = 0.3})
+		local tween = TweenService:Create(Domain.Home.WelcomeSub, transitionInfo, {TextTransparency = 0.3})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.ControlPanel, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel.Buttons.Lighting, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Lighting, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel.Buttons.Notification, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Notification, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel.Buttons.Power, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Power, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel.Buttons.Lighting.Interact, transitionInfo, {ImageTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Lighting.Interact, transitionInfo, {ImageTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(DoKaosmain.Home.ControlPanel.Buttons.Notification.Interact, transitionInfo, {ImageTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Notification.Interact, transitionInfo, {ImageTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel.Buttons.Power.Interact, transitionInfo, {ImageTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Power.Interact, transitionInfo, {ImageTransparency = 0})
 		tween:Play()
-		for _, mitem in ipairs(Kaos.Home.Music:GetDescendants()) do
+		for _, mitem in ipairs(Domain.Home.Music:GetDescendants()) do
 			if mitem:IsA("ImageButton") or mitem:IsA("ImageLabel") then
 				if mitem.Name == "ShadowDown" then
 					local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
@@ -2292,185 +2292,185 @@ function OpenHome()
 
 		-- Discord Animate
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Discord, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		wait(0.01)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord, transitionInfo, {Size = UDim2.new(0.151, 0, 0.132, 0)})
+		local tween = TweenService:Create(Domain.Home.Discord, transitionInfo, {Size = UDim2.new(0.151, 0, 0.132, 0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord, transitionInfo, {Position = UDim2.new(0.019, 0, 0.17, 0)})
+		local tween = TweenService:Create(Domain.Home.Discord, transitionInfo, {Position = UDim2.new(0.019, 0, 0.17, 0)})
 		tween:Play()
 		wait(0.05)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord.Title, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Discord.Title, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		wait(0.01)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord.Info, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Discord.Info, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord.Icon, transitionInfo, {ImageTransparency = 0.95})
+		local tween = TweenService:Create(Domain.Home.Discord.Icon, transitionInfo, {ImageTransparency = 0.95})
 		tween:Play()
 		wait(0.05)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord.Copyframe, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Discord.Copyframe, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord.Copyframe.Copy, transitionInfo, {ImageTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Discord.Copyframe.Copy, transitionInfo, {ImageTransparency = 0})
 		tween:Play()
 		wait(0.01)
 		-- Friends Animate
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		wait(0.01)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends, transitionInfo, {Size = UDim2.new(0.215, 0, 0.191, 0)})
+		local tween = TweenService:Create(Domain.Home.Friends, transitionInfo, {Size = UDim2.new(0.215, 0, 0.191, 0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends, transitionInfo, {Position = UDim2.new(0.173, 0, 0.17, 0)})
-		tween:Play()
-		wait(0.01)
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Title, transitionInfo, {TextTransparency = 0})
-		tween:Play()
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Info, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends, transitionInfo, {Position = UDim2.new(0.173, 0, 0.17, 0)})
 		tween:Play()
 		wait(0.01)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Online, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.Title, transitionInfo, {TextTransparency = 0})
+		tween:Play()
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.Friends.Info, transitionInfo, {TextTransparency = 0})
+		tween:Play()
+		wait(0.01)
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.Friends.Online, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Online.Icon, transitionInfo, {ImageTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.Online.Icon, transitionInfo, {ImageTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Online.Title, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.Online.Title, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Online.FriendsOnline, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.Online.FriendsOnline, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Offline, transitionInfo, {BackgroundTransparency = 0})
-		tween:Play()
-		wait(0.001)
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Offline.Icon, transitionInfo, {ImageTransparency = 0})
-		tween:Play()
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Offline.Title, transitionInfo, {TextTransparency = 0})
-		tween:Play()
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Offline.FriendsOffline, transitionInfo, {TextTransparency = 0})
-		tween:Play()
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.InServer, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.Offline, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.InServer.Icon, transitionInfo, {ImageTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.Offline.Icon, transitionInfo, {ImageTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.InServer.Title, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.Offline.Title, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.InServer.FriendsInGame, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.Offline.FriendsOffline, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.All, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.InServer, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.All.Icon, transitionInfo, {ImageTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.InServer.Icon, transitionInfo, {ImageTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.All.Title, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.InServer.Title, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.All.FriendsAll, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Friends.InServer.FriendsInGame, transitionInfo, {TextTransparency = 0})
+		tween:Play()
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.Friends.All, transitionInfo, {BackgroundTransparency = 0})
+		tween:Play()
+		wait(0.001)
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.Friends.All.Icon, transitionInfo, {ImageTransparency = 0})
+		tween:Play()
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.Friends.All.Title, transitionInfo, {TextTransparency = 0})
+		tween:Play()
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.Friends.All.FriendsAll, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		-- Data Animation
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Data, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data, transitionInfo, {Size = UDim2.new(0.151,0,0.311,0)})
+		local tween = TweenService:Create(Domain.Home.Data, transitionInfo, {Size = UDim2.new(0.151,0,0.311,0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data, transitionInfo, {Position = UDim2.new(0.019,0,0.306,0)})
+		local tween = TweenService:Create(Domain.Home.Data, transitionInfo, {Position = UDim2.new(0.019,0,0.306,0)})
 		tween:Play()
 		wait(0.005)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.Title, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Data.Title, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.Info, transitionInfo, {TextTransparency = 0})
-		tween:Play()
-		wait(0.001)
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.data.Executor, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Data.Info, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.data.Version, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Data.data.Executor, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.data.Time, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Data.data.Version, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.data.Players, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Data.data.Time, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.data.File, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Data.data.Players, transitionInfo, {TextTransparency = 0})
+		tween:Play()
+		wait(0.001)
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.Data.data.File, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		-- User Animate
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.User, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		wait(0.005)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User, transitionInfo, {Size = UDim2.new(0.15, 0, 0.094, 0)})
+		local tween = TweenService:Create(Domain.Home.User, transitionInfo, {Size = UDim2.new(0.15, 0, 0.094, 0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User, transitionInfo, {Position = UDim2.new(0.173, 0, 0.364, 0)})
+		local tween = TweenService:Create(Domain.Home.User, transitionInfo, {Position = UDim2.new(0.173, 0, 0.364, 0)})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User.Avatar, transitionInfo, {BackgroundTransparency = 0.9})
+		local tween = TweenService:Create(Domain.Home.User.Avatar, transitionInfo, {BackgroundTransparency = 0.9})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User.Avatar, transitionInfo, {ImageTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.User.Avatar, transitionInfo, {ImageTransparency = 0})
 		tween:Play()
 		wait(0.005)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User.BigTitle, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.User.BigTitle, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User.Title, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.User.Title, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		-- Executors
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Executors, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Executors, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Executors, transitionInfo, {Size = UDim2.new(0.151, 0, 0.17, 0)})
+		local tween = TweenService:Create(Domain.Home.Executors, transitionInfo, {Size = UDim2.new(0.151, 0, 0.17, 0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Executors, transitionInfo, {Position = UDim2.new(0.019, 0, 0.621, 0)})
+		local tween = TweenService:Create(Domain.Home.Executors, transitionInfo, {Position = UDim2.new(0.019, 0, 0.621, 0)})
 		tween:Play()
 		wait(0.005)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Executors.Title, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Executors.Title, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Executors.Info, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Executors.Info, transitionInfo, {TextTransparency = 0})
 		tween:Play()
-		for _, img in ipairs(Kaos.Home.Executors.data:GetChildren()) do
+		for _, img in ipairs(Domain.Home.Executors.data:GetChildren()) do
 			if img.Name ~= "UIListLayout" then
 				local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
 				local tween = TweenService:Create(img, transitionInfo, {ImageTransparency = 0})
@@ -2480,61 +2480,61 @@ function OpenHome()
 		end
 		-- Keybind
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Keybind, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		wait(0.005)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind, transitionInfo, {Size = UDim2.new(0.126, 0, 0.086, 0)})
+		local tween = TweenService:Create(Domain.Home.Keybind, transitionInfo, {Size = UDim2.new(0.126, 0, 0.086, 0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind, transitionInfo, {Position = UDim2.new(0.173, 0, 0.462, 0)})
-		tween:Play()
-		wait(0.001)
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind.Title, transitionInfo, {TextTransparency = 0})
-		tween:Play()
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind.Info, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Keybind, transitionInfo, {Position = UDim2.new(0.173, 0, 0.462, 0)})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind.KeyBG, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Keybind.Title, transitionInfo, {TextTransparency = 0})
+		tween:Play()
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.Keybind.Info, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind.KeyBG.KeyBox, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.Keybind.KeyBG, transitionInfo, {BackgroundTransparency = 0})
+		tween:Play()
+		wait(0.001)
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.Keybind.KeyBG.KeyBox, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage, transitionInfo, {BackgroundTransparency = 0})
 		tween:Play()
 		wait(0.005)
 
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage, transitionInfo, {Size = UDim2.new(0.109, 0, 0.086, 0)})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage, transitionInfo, {Size = UDim2.new(0.109, 0, 0.086, 0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage, transitionInfo, {Position = UDim2.new(0.173, 0, 0.553, 0)})
-		tween:Play()
-		wait(0.001)
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.Title, transitionInfo, {TextTransparency = 0})
-		tween:Play()
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.Info, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage, transitionInfo, {Position = UDim2.new(0.173, 0, 0.553, 0)})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.None, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.Title, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.None.Interact, transitionInfo, {ImageTransparency = 0})
-		tween:Play()
-		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.WBG, transitionInfo, {BackgroundTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.Info, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		wait(0.001)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.WBG.WBox, transitionInfo, {TextTransparency = 0})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.None, transitionInfo, {BackgroundTransparency = 0})
+		tween:Play()
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.None.Interact, transitionInfo, {ImageTransparency = 0})
+		tween:Play()
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.WBG, transitionInfo, {BackgroundTransparency = 0})
+		tween:Play()
+		wait(0.001)
+		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.WBG.WBox, transitionInfo, {TextTransparency = 0})
 		tween:Play()
 		wait(0.65)
 
@@ -2552,21 +2552,21 @@ function ChangeWallpaper(WallpaperFileName)
 	end
 	if CheckWritefile() then
 		if isfile(WallpaperFileName) then
-			Kaos.Home.Wallpaper.Visible = true
-			Kaos.Home.Wallpaper.ImageTransparency = 1
+			Domain.Home.Wallpaper.Visible = true
+			Domain.Home.Wallpaper.ImageTransparency = 1
 			if getsynasset then
-				Kaos.Home.Wallpaper.Image = getsynasset(WallpaperFileName)
+				Domain.Home.Wallpaper.Image = getsynasset(WallpaperFileName)
 				writefile("Kaos Wallpaper.txt",WallpaperFileName)
 				Toast("Sucessfully changed wallpaper to "..WallpaperFileName)
 			elseif getcustomasset then
-				Kaos.Home.Wallpaper.Image = getcustomasset(WallpaperFileName)
+				Domain.Home.Wallpaper.Image = getcustomasset(WallpaperFileName)
 				writefile("Kaos Wallpaper.txt",WallpaperFileName)
 				Toast("Sucessfully changed wallpaper to "..WallpaperFileName)
 			else
 				Toast("Missing getcustomasset function")
 			end
 			local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Home.Wallpaper, transitionInfo, {ImageTransparency = 0})
+			local tween = TweenService:Create(Domain.Home.Wallpaper, transitionInfo, {ImageTransparency = 0})
 			tween:Play()
 		else
 			Notify("Couldn't locate file","We couldn't locate the file for use, make sure you add .png or .jpeg to the textbox",3944676352)
@@ -2574,19 +2574,19 @@ function ChangeWallpaper(WallpaperFileName)
 	end
 end
 
-Kaos.Home.WallpaperManage.None.Interact.MouseButton1Click:Connect(function()
+Domain.Home.WallpaperManage.None.Interact.MouseButton1Click:Connect(function()
 	if CheckWritefile() then
 		if isfile("Kaos Wallpaper.txt") then
 			delfile("Kaos Wallpaper.txt")
-			Kaos.Home.WallpaperManage.WBG.WBox.Text = ""
+			Domain.Home.WallpaperManage.WBG.WBox.Text = ""
 		end
 	end
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Home.Wallpaper, transitionInfo, {ImageTransparency = 1})
+	local tween = TweenService:Create(Domain.Home.Wallpaper, transitionInfo, {ImageTransparency = 1})
 	tween:Play()
 	wait(0.8)
-	Kaos.Home.Wallpaper.Visible = false
-	Kaos.Home.Wallpaper.Image = ""
+	Domain.Home.Wallpaper.Visible = false
+	Domain.Home.Wallpaper.Image = ""
 end)
 
 function Execute(String)
@@ -2602,22 +2602,22 @@ function PromptDetection(Script)
 		if not UserIsPremium then
 			return
 		else
-			Kaos.Detection.Banner.Visible = true
-			Kaos.Detection.Banner.Title.Text = "Premium Script"
+			Domain.Detection.Banner.Visible = true
+			Domain.Detection.Banner.Title.Text = "Premium Script"
 		end
 	else
-		Kaos.Detection.Banner.Visible = false
+		Domain.Detection.Banner.Visible = false
 	end
 	if CustomScriptEnabled then
-		Kaos.Detection.Banner.Visible = true
-		Kaos.Detection.Banner.Title.Text = "Custom Script"
+		Domain.Detection.Banner.Visible = true
+		Domain.Detection.Banner.Title.Text = "Custom Script"
 	end
-	Kaos.Detection.Banner.BackgroundTransparency = 1
-	Kaos.Detection.Banner.Title.TextTransparency = 1
-	Kaos.Detection.Banner.Shadow.ImageTransparency = 1
-	Kaos.Detection.Size = UDim2.new(0.219, 0,0.146, 0)
-	Kaos.Detection.Position = UDim2.new(0.5, 0,0.235, 0)
-	for _, obj in ipairs(Kaos.Detection:GetDescendants()) do
+	Domain.Detection.Banner.BackgroundTransparency = 1
+	Domain.Detection.Banner.Title.TextTransparency = 1
+	Domain.Detection.Banner.Shadow.ImageTransparency = 1
+	Domain.Detection.Size = UDim2.new(0.219, 0,0.146, 0)
+	Domain.Detection.Position = UDim2.new(0.5, 0,0.235, 0)
+	for _, obj in ipairs(Domain.Detection:GetDescendants()) do
 		if obj.ClassName == "TextLabel" then
 			obj.TextTransparency = 1
 		elseif obj.ClassName == "ImageLabel" or obj.ClassName == "ImageButton" then
@@ -2629,11 +2629,11 @@ function PromptDetection(Script)
 		end
 	end
 	local DetectionFired = true
-	Kaos.Detection.Visible = true
-	Kaos.Detection.Description.Text = Script.Description
-	Kaos.Detection.GameName.Text = Script.Name
-	Kaos.Detection.BackgroundTransparency = 1 
-	for _, obj in ipairs(Kaos.Detection:GetDescendants()) do
+	Domain.Detection.Visible = true
+	Domain.Detection.Description.Text = Script.Description
+	Domain.Detection.GameName.Text = Script.Name
+	Domain.Detection.BackgroundTransparency = 1 
+	for _, obj in ipairs(Domain.Detection:GetDescendants()) do
 		if obj.Name ~= "Banner" or obj.Parent.Name ~= "Banner" then
 			if obj.ClassName == "TextLabel" then
 				if obj.Name == "Title" and obj.Parent.Name ~= "Banner" then
@@ -2682,42 +2682,42 @@ function PromptDetection(Script)
 		end
 	end
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Detection, transitionInfo, {BackgroundTransparency = 0.5})
+	local tween = TweenService:Create(Domain.Detection, transitionInfo, {BackgroundTransparency = 0.5})
 	tween:Play()
 	wait(1)
 
 
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Detection, transitionInfo, {Size = UDim2.new(0.239, 0,0.16, 0)})
+	local tween = TweenService:Create(Domain.Detection, transitionInfo, {Size = UDim2.new(0.239, 0,0.16, 0)})
 	tween:Play()
 
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Detection, transitionInfo, {Position = UDim2.new(0.5, 0,0.194, 0)})
+	local tween = TweenService:Create(Domain.Detection, transitionInfo, {Position = UDim2.new(0.5, 0,0.194, 0)})
 	tween:Play()
 	wait(0.2)
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Detection, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Detection, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	wait(0.5)
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Detection.ExecuteNote, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Detection.ExecuteNote, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Detection.ExitBG, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Detection.ExitBG, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	wait(0.5)
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Detection.Banner, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Detection.Banner, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Detection.Banner.Title, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Detection.Banner.Title, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Detection.Banner.Shadow, transitionInfo, {ImageTransparency = 0.7})
+	local tween = TweenService:Create(Domain.Detection.Banner.Shadow, transitionInfo, {ImageTransparency = 0.7})
 	tween:Play()
 
-	Kaos.Detection.ExitBG.Interact.MouseButton1Click:Connect(function()
-		for _, obj in ipairs(Kaos.Detection:GetDescendants()) do
+	Domain.Detection.ExitBG.Interact.MouseButton1Click:Connect(function()
+		for _, obj in ipairs(Domain.Detection:GetDescendants()) do
 			if obj.ClassName == "TextLabel" then
 				local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
 				local tween = TweenService:Create(obj, transitionInfo, {TextTransparency = 1})
@@ -2737,22 +2737,22 @@ function PromptDetection(Script)
 			end
 		end
 		local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Detection, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Detection, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Detection, transitionInfo, {Size = UDim2.new(0.219, 0,0.146, 0)})
+		local tween = TweenService:Create(Domain.Detection, transitionInfo, {Size = UDim2.new(0.219, 0,0.146, 0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Detection, transitionInfo, {Position = UDim2.new(0.5, 0,0.235, 0)})
+		local tween = TweenService:Create(Domain.Detection, transitionInfo, {Position = UDim2.new(0.5, 0,0.235, 0)})
 		tween:Play()
 		wait(0.81)
-		Kaos.Detection.Visible = false
+		Domain.Detection.Visible = false
 		DetectionFired = false
 	end)
 	UserInputService.InputBegan:Connect(function(input, processed)
 		if (input.KeyCode == Enum.KeyCode.Y and processed == false) and DetectionFired then
 			DetectionFired = false
-			for _, obj in ipairs(Kaos.Detection:GetDescendants()) do
+			for _, obj in ipairs(Domain.Detection:GetDescendants()) do
 				if obj.ClassName == "TextLabel" then
 					local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
 					local tween = TweenService:Create(obj, transitionInfo, {TextTransparency = 1})
@@ -2772,16 +2772,16 @@ function PromptDetection(Script)
 				end
 			end
 			local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Detection, transitionInfo, {Size = UDim2.new(0.219, 0,0.146, 0)})
+			local tween = TweenService:Create(Domain.Detection, transitionInfo, {Size = UDim2.new(0.219, 0,0.146, 0)})
 			tween:Play()
 			local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Detection, transitionInfo, {Position = UDim2.new(0.5, 0,0.235, 0)})
+			local tween = TweenService:Create(Domain.Detection, transitionInfo, {Position = UDim2.new(0.5, 0,0.235, 0)})
 			tween:Play()
 			local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Detection, transitionInfo, {BackgroundTransparency = 1})
+			local tween = TweenService:Create(Domain.Detection, transitionInfo, {BackgroundTransparency = 1})
 			tween:Play()
 			wait(0.81)
-			Kaos.Detection.Visible = false
+			Domain.Detection.Visible = false
 			Toast("Starting "..Script.Name)
 
 			if Script.KeySys == true then
@@ -2800,49 +2800,49 @@ function CloseHome()
 		homedb = true
 		if not ThemeEnabled then
 			local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Main.Buttons.HomeButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(56, 56, 56)})
+			local tween = TweenService:Create(Domain.Main.Buttons.HomeButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(56, 56, 56)})
 			tween:Play()
 			local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Main.Buttons.HomeButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(238, 238, 238)})
+			local tween = TweenService:Create(Domain.Main.Buttons.HomeButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(238, 238, 238)})
 			tween:Play()
 		end
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Notifications, transitionInfo, {Position = UDim2.new(0.815,0,0.044,0)})
+		local tween = TweenService:Create(Domain.Notifications, transitionInfo, {Position = UDim2.new(0.815,0,0.044,0)})
 		tween:Play()		
 
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.FPS, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.FPS, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()	
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.FPS.FPSText, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.FPS.FPSText, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.FPS.Icon, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.FPS.Icon, transitionInfo, {ImageTransparency = 1})
 		tween:Play()	
 
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.ControlPanel, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel.Buttons.Lighting, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Lighting, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel.Buttons.Notification, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Notification, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel.Buttons.Power, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Power, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel.Buttons.Lighting.Interact, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Lighting.Interact, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel.Buttons.Notification.Interact, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Notification.Interact, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.ControlPanel.Buttons.Power.Interact, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.ControlPanel.Buttons.Power.Interact, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 
-		for _, mitem in ipairs(Kaos.Home.Music:GetDescendants()) do
+		for _, mitem in ipairs(Domain.Home.Music:GetDescendants()) do
 			if mitem:IsA("ImageButton") or mitem:IsA("ImageLabel") then
 				local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
 				local tween = TweenService:Create(mitem, transitionInfo, {ImageTransparency = 1})
@@ -2859,142 +2859,142 @@ function CloseHome()
 		end
 
 		local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Wallpaper, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Wallpaper, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Welcome, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Welcome, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WelcomeSub, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.WelcomeSub, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Discord, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord.Title, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Discord.Title, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord.Info, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Discord.Info, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord.Icon, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Discord.Icon, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord.Copyframe, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Discord.Copyframe, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Discord.Copyframe.Copy, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Discord.Copyframe.Copy, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		-- Friends Animate
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Title, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.Title, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Info, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.Info, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Online, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.Online, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Online.Icon, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.Online.Icon, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Online.Title, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.Online.Title, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Online.FriendsOnline, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.Online.FriendsOnline, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Offline, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.Offline, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Offline.Icon, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.Offline.Icon, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Offline.Title, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.Offline.Title, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.Offline.FriendsOffline, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.Offline.FriendsOffline, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.InServer, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.InServer, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.InServer.Icon, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.InServer.Icon, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.InServer.Title, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.InServer.Title, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.InServer.FriendsInGame, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.InServer.FriendsInGame, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.All, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.All, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.All.Icon, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.All.Icon, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.All.Title, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.All.Title, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Friends.All.FriendsAll, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Friends.All.FriendsAll, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		-- Data Animation
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Data, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.Title, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Data.Title, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.Info, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Data.Info, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.data.Executor, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Data.data.Executor, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.data.Version, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Data.data.Version, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.data.Time, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Data.data.Time, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.data.Players, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Data.data.Players, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Data.data.File, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Data.data.File, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		-- User Animate
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.User, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User.Avatar, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.User.Avatar, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User.Avatar, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.User.Avatar, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User.BigTitle, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.User.BigTitle, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.User.Title, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.User.Title, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		-- Executors
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Executors, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Executors, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Executors.Title, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Executors.Title, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Executors.Info, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Executors.Info, transitionInfo, {TextTransparency = 1})
 		tween:Play()
-		for _, img in ipairs(Kaos.Home.Executors.data:GetChildren()) do
+		for _, img in ipairs(Domain.Home.Executors.data:GetChildren()) do
 			if img.Name ~= "UIListLayout" then
 				local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
 				local tween = TweenService:Create(img, transitionInfo, {ImageTransparency = 1})
@@ -3003,50 +3003,50 @@ function CloseHome()
 		end
 		-- Keybind
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Keybind, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind.Title, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Keybind.Title, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind.Info, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Keybind.Info, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind.KeyBG, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Keybind.KeyBG, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Keybind.KeyBG.KeyBox, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Keybind.KeyBG.KeyBox, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		wait(0.01)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.Title, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.Title, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.Info, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.Info, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.WBG, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.WBG, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.None, transitionInfo, {BackgroundTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.None, transitionInfo, {BackgroundTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.None.Interact, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.None.Interact, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.WallpaperManage.WBG.WBox, transitionInfo, {TextTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.WallpaperManage.WBG.WBox, transitionInfo, {TextTransparency = 1})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
 		local tween = TweenService:Create(workspace.CurrentCamera, transitionInfo, {FieldOfView = 70})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(game.Lighting:FindFirstChild("KaosBlur"), transitionInfo, {Size = 0})
+		local tween = TweenService:Create(game.Lighting:FindFirstChild("DomainBlur"), transitionInfo, {Size = 0})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Home.Shadow, transitionInfo, {ImageTransparency = 1})
+		local tween = TweenService:Create(Domain.Home.Shadow, transitionInfo, {ImageTransparency = 1})
 		tween:Play()
 		for _, gui in pairs(CachedUI) do
 			for _, pgui in ipairs(LocalPlayer:FindFirstChildWhichIsA("PlayerGui"):GetChildren()) do
@@ -3057,18 +3057,18 @@ function CloseHome()
 		end
 		for _, audio in ipairs(workspace:GetChildren()) do
 			if audio.ClassName == "Sound" then
-				if audio:FindFirstChild("KaosEditorialEffect") then
+				if audio:FindFirstChild("DomainEditorialEffect") then
 					local transitionInfo = TweenInfo.new(0.35, Enum.EasingStyle.Quint)
-					local tween = game:GetService("TweenService"):Create(audio:FindFirstChild("KaosEditorialEffect"), transitionInfo, {HighGain = -15})
+					local tween = game:GetService("TweenService"):Create(audio:FindFirstChild("DomainEditorialEffect"), transitionInfo, {HighGain = -15})
 					tween:Play()
 					local transitionInfo = TweenInfo.new(0.35, Enum.EasingStyle.Quint)
-					local tween = game:GetService("TweenService"):Create(audio:FindFirstChild("KaosEditorialEffect"), transitionInfo, {LowGain = -15})
+					local tween = game:GetService("TweenService"):Create(audio:FindFirstChild("DomainEditorialEffect"), transitionInfo, {LowGain = -15})
 					tween:Play()
 					local transitionInfo = TweenInfo.new(0.35, Enum.EasingStyle.Quint)
-					local tween = game:GetService("TweenService"):Create(audio:FindFirstChild("KaosEditorialEffect"), transitionInfo, {MidGain = 5})
+					local tween = game:GetService("TweenService"):Create(audio:FindFirstChild("DomainEditorialEffect"), transitionInfo, {MidGain = 5})
 					tween:Play()
 					wait(0.35)
-					audio:FindFirstChild("KaosEditorialEffect"):Destroy()
+					audio:FindFirstChild("DomainEditorialEffect"):Destroy()
 				end
 			end
 		end
@@ -3076,8 +3076,8 @@ function CloseHome()
 			game:GetService("StarterGui"):SetCoreGuiEnabled(coregui,true)
 		end
 		wait(0.8)
-		Kaos.Home.Visible = false
-		game.Lighting:FindFirstChild("KaosBlur"):Destroy()
+		Domain.Home.Visible = false
+		game.Lighting:FindFirstChild("DomainBlur"):Destroy()
 		homedb = false
 	end
 end
@@ -3088,20 +3088,20 @@ function OpenJC()
 	end
 	if not ThemeEnabled then
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.JoinCodesButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(238,238,238)})
+		local tween = TweenService:Create(Domain.Main.Buttons.JoinCodesButton, transitionInfo, {BackgroundColor3 = Color3.fromRGB(238,238,238)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(1.1, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Main.Buttons.JoinCodesButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(56,56,56)})
+		local tween = TweenService:Create(Domain.Main.Buttons.JoinCodesButton.Interact, transitionInfo, {ImageColor3 = Color3.fromRGB(56,56,56)})
 		tween:Play()
 	end
-	Kaos.JoinCodes.PlayersUsingKaos.Visible = false
-	Kaos.JoinCodes.JoinCodesAvatar.Visible = false
-	Kaos.JoinCodes.JDisplayName.Visible = false
-	Kaos.JoinCodes.JUsername.Visible = false
-	Kaos.JoinCodes.Invitation.Visible = false
+	Domain.JoinCodes.PlayersUsingDomain.Visible = false
+	Domain.JoinCodes.JoinCodesAvatar.Visible = false
+	Domain.JoinCodes.JDisplayName.Visible = false
+	Domain.JoinCodes.JUsername.Visible = false
+	Domain.JoinCodes.Invitation.Visible = false
 	jcopen = true
-	Kaos.JoinCodes.BackgroundTransparency = 1
-	for _, o in ipairs(Kaos.JoinCodes:GetDescendants()) do
+	Domain.JoinCodes.BackgroundTransparency = 1
+	for _, o in ipairs(Domain.JoinCodes:GetDescendants()) do
 		if o.ClassName == "Frame" then
 			o.BackgroundTransparency = 1
 		end
@@ -3112,16 +3112,16 @@ function OpenJC()
 			o.ImageTransparency = 1
 		end
 	end
-	Kaos.JoinCodes.Size = UDim2.new(0.22, 0, 0.207, 0)
-	Kaos.JoinCodes.Visible = true
+	Domain.JoinCodes.Size = UDim2.new(0.22, 0, 0.207, 0)
+	Domain.JoinCodes.Visible = true
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.JoinCodes, transitionInfo, {Size = UDim2.new(0.231, 0, 0.218, 0)})
+	local tween = TweenService:Create(Domain.JoinCodes, transitionInfo, {Size = UDim2.new(0.231, 0, 0.218, 0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.JoinCodes, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.JoinCodes, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	wait(0.1)
-	for _, o in ipairs(Kaos.JoinCodes:GetDescendants()) do
+	for _, o in ipairs(Domain.JoinCodes:GetDescendants()) do
 		if o.ClassName == "Frame" then
 			local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
 			local tween = TweenService:Create(o, transitionInfo, {BackgroundTransparency = 0})
@@ -3168,72 +3168,72 @@ end
 
 function OpenServerhopMenu()
 	ServerhopCancelled = false
-	Kaos.Serverhop.Visible = true
-	Kaos.Serverhop.BackgroundTransparency = 1
-	Kaos.Serverhop.Title.TextTransparency = 1
-	Kaos.Serverhop.Info.TextTransparency = 1
-	Kaos.Serverhop.Stop.Visible = true
-	Kaos.Serverhop.ServerhopLoading.Size = UDim2.new(0.642,0,0.015,0)
-	Kaos.Serverhop.ProgressInfo.TextTransparency = 1
-	Kaos.Serverhop.ServerhopLoading.BackgroundTransparency = 1
-	Kaos.Serverhop.ServerhopLoading.Progress.Size = UDim2.new(0,0,1,0)
-	Kaos.Serverhop.Stop.ImageTransparency = 1
+	Domain.Serverhop.Visible = true
+	Domain.Serverhop.BackgroundTransparency = 1
+	Domain.Serverhop.Title.TextTransparency = 1
+	Domain.Serverhop.Info.TextTransparency = 1
+	Domain.Serverhop.Stop.Visible = true
+	Domain.Serverhop.ServerhopLoading.Size = UDim2.new(0.642,0,0.015,0)
+	Domain.Serverhop.ProgressInfo.TextTransparency = 1
+	Domain.Serverhop.ServerhopLoading.BackgroundTransparency = 1
+	Domain.Serverhop.ServerhopLoading.Progress.Size = UDim2.new(0,0,1,0)
+	Domain.Serverhop.Stop.ImageTransparency = 1
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Serverhop, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	wait(0.3)
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.Title, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Serverhop.Title, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	wait(0.1)
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.Info, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Serverhop.Info, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	wait(0.3)
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.ServerhopLoading, transitionInfo, {BackgroundTransparency = 0})
+	local tween = TweenService:Create(Domain.Serverhop.ServerhopLoading, transitionInfo, {BackgroundTransparency = 0})
 	tween:Play()
 	wait(0.1)
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.ProgressInfo, transitionInfo, {TextTransparency = 0})
+	local tween = TweenService:Create(Domain.Serverhop.ProgressInfo, transitionInfo, {TextTransparency = 0})
 	tween:Play()
 	wait(0.3)
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.Stop, transitionInfo, {ImageTransparency = 0})
+	local tween = TweenService:Create(Domain.Serverhop.Stop, transitionInfo, {ImageTransparency = 0})
 	tween:Play()
 	wait(0.1)
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.1,0,1,0)})
+	local tween = TweenService:Create(Domain.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.1,0,1,0)})
 	tween:Play()
 end
 
 function CloseServerhopMenu()
 	serverhopdb = false
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0,0,1,0)})
+	local tween = TweenService:Create(Domain.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0,0,1,0)})
 	tween:Play()
 	wait(0.9)
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.ServerhopLoading, transitionInfo, {Size = UDim2.new(0,0,0.015,0)})
+	local tween = TweenService:Create(Domain.Serverhop.ServerhopLoading, transitionInfo, {Size = UDim2.new(0,0,0.015,0)})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.ProgressInfo, transitionInfo, {TextTransparency = 1})
+	local tween = TweenService:Create(Domain.Serverhop.ProgressInfo, transitionInfo, {TextTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.Title, transitionInfo, {TextTransparency = 1})
+	local tween = TweenService:Create(Domain.Serverhop.Title, transitionInfo, {TextTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.Info, transitionInfo, {TextTransparency = 1})
+	local tween = TweenService:Create(Domain.Serverhop.Info, transitionInfo, {TextTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.ServerhopLoading, transitionInfo, {BackgroundTransparency = 1})
+	local tween = TweenService:Create(Domain.Serverhop.ServerhopLoading, transitionInfo, {BackgroundTransparency = 1})
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop.Stop, transitionInfo, {ImageTransparency = 1})
+	local tween = TweenService:Create(Domain.Serverhop.Stop, transitionInfo, {ImageTransparency = 1})
 	tween:Play()
 	wait(0.2)
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Serverhop, transitionInfo, {BackgroundTransparency = 1})
+	local tween = TweenService:Create(Domain.Serverhop, transitionInfo, {BackgroundTransparency = 1})
 	tween:Play()
 end
 
@@ -3241,66 +3241,66 @@ end
 function Serverhop()
 	if not serverhopdb then
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
+		local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
 		tween:Play()	
 		serverhopdb = true
-		Kaos.Serverhop.ProgressInfo.Text = "Fetching Servers"
+		Domain.Serverhop.ProgressInfo.Text = "Fetching Servers"
 		OpenServerhopMenu()
 
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
+		local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
 		tween:Play()	
 		wait(0.3)	
 		local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.22,0,1,0)})
+		local tween = TweenService:Create(Domain.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.22,0,1,0)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62,62,62)})
+		local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62,62,62)})
 		tween:Play()
 		wait(0.3)
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
+		local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
 		tween:Play()	
 		wait(0.9)
 		local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.4,0,1,0)})
+		local tween = TweenService:Create(Domain.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.4,0,1,0)})
 		tween:Play()
 		wait(0.3)
 		if ThemeEnabled then
 			local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
+			local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
 			tween:Play()
 		else
 			local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62,62,62)})
+			local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62,62,62)})
 			tween:Play()
 		end		
 		wait(0.6)
-		Kaos.Serverhop.ProgressInfo.Text = "Finding best server"
+		Domain.Serverhop.ProgressInfo.Text = "Finding best server"
 		local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.5,0,1,0)})
+		local tween = TweenService:Create(Domain.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.5,0,1,0)})
 		tween:Play()
 		-- "Fetching servers"
 		local Amount = CheckServers()
 		if Amount == "NoFound" then
 			-- No Servers, return
-			Kaos.Serverhop.ProgressInfo.Text = "No servers found"
+			Domain.Serverhop.ProgressInfo.Text = "No servers found"
 			if ThemeEnabled then
 				local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-				local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
+				local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
 				tween:Play()
 			else
 				local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-				local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62,62,62)})
+				local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62,62,62)})
 				tween:Play()
 			end	
 			CloseServerhopMenu()
 		elseif Amount > 0 then
 			-- Found more than 0 servers, let them know, then wait, then teleport
 			if not ServerhopCancelled then
-				Kaos.Serverhop.ProgressInfo.Text = "Found server"
+				Domain.Serverhop.ProgressInfo.Text = "Found server"
 				local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-				local tween = TweenService:Create(Kaos.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.8,0,1,0)})
+				local tween = TweenService:Create(Domain.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.8,0,1,0)})
 				tween:Play()
 			end
 			wait(1.7)
@@ -3316,32 +3316,32 @@ function Serverhop()
 			end
 
 			if #servers > 0 then
-				Kaos.Serverhop.ProgressInfo.Text = "Teleporting"
+				Domain.Serverhop.ProgressInfo.Text = "Teleporting"
 				local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
-				local tween = TweenService:Create(Kaos.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.85,0,1,0)})
+				local tween = TweenService:Create(Domain.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(0.85,0,1,0)})
 				tween:Play()
 				local transitionInfo = TweenInfo.new(0.75, Enum.EasingStyle.Quint)
-				local tween = TweenService:Create(Kaos.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(1,0,1,0)})
+				local tween = TweenService:Create(Domain.Serverhop.ServerhopLoading.Progress, transitionInfo, {Size = UDim2.new(1,0,1,0)})
 				tween:Play()
 				wait(0.75)
-				Kaos.Serverhop.Stop.Visible = false
+				Domain.Serverhop.Stop.Visible = false
 				if not ServerhopCancelled then
 					local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-					local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
+					local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
 					tween:Play()	
 					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, servers[1])
 					serverhopdb = false
 				end
 			else
-				Kaos.Serverhop.ProgressInfo.Text = "Server lost"
+				Domain.Serverhop.ProgressInfo.Text = "Server lost"
 				CloseServerhopMenu()
 				if ThemeEnabled then
 					local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-					local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
+					local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
 					tween:Play()
 				else
 					local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-					local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62,62,62)})
+					local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62,62,62)})
 					tween:Play()
 				end	
 				serverhopdb = false
@@ -3350,15 +3350,15 @@ function Serverhop()
 	end
 end
 
-Kaos.Serverhop.Stop.MouseButton1Click:Connect(function()
-	Kaos.Serverhop.ProgressInfo.Text = "Cancelled"
+Domain.Serverhop.Stop.MouseButton1Click:Connect(function()
+	Domain.Serverhop.ProgressInfo.Text = "Cancelled"
 	if ThemeEnabled then
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
+		local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
 		tween:Play()
 	else
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62,62,62)})
+		local tween = TweenService:Create(Domain.Player.Serverhop, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62,62,62)})
 		tween:Play()
 	end
 
@@ -3469,26 +3469,26 @@ end)
 
 function olduidestroy()
 	local removedinstances = 0
-	if game.Lighting:FindFirstChild("KaosBlur") then
-		game.Lighting:FindFirstChild("KaosBlur"):Destroy()
+	if game.Lighting:FindFirstChild("DomainBlur") then
+		game.Lighting:FindFirstChild("DomainBlur"):Destroy()
 	end
 	if game:GetService("RunService"):IsStudio() then
-		if LocalPlayer:FindFirstChildWhichIsA("PlayerGui"):FindFirstChild("Kaos") then
-			LocalPlayer:FindFirstChildWhichIsA("PlayerGui"):FindFirstChild("Kaos"):Destroy()
+		if LocalPlayer:FindFirstChildWhichIsA("PlayerGui"):FindFirstChild("Domain") then
+			LocalPlayer:FindFirstChildWhichIsA("PlayerGui"):FindFirstChild("Domain"):Destroy()
 		end
 	else
 		for _, ui in ipairs(game:GetService("CoreGui"):GetChildren()) do
-			if ui.Name == "Kaos" and ui ~= Kaos then
+			if ui.Name == "Domain" and ui ~= Domain then
 				ui.Enabled = false
-				ui.Name = "KaosOld"
+				ui.Name = "DomainOld"
 				removedinstances = removedinstances + 1
 			end
 		end
 		if gethui then
 			for _, ui in ipairs(gethui():GetChildren()) do
-				if ui.Name == "Kaos" and ui ~= Kaos then
+				if ui.Name == "Domain" and ui ~= Domain then
 					ui.Enabled = false
-					ui.Name = "KaosOld"
+					ui.Name = "DomainOld"
 					removedinstances = removedinstances + 1
 				end
 			end
@@ -3513,7 +3513,7 @@ function dec(data)
 end
 
 function StartAntiKick()
-	--hookfunction(LocalPlayer.Kick,(function() Notify("Anti Kick","Kaos has avoided the game kicking you locally",4400697855) wait(9e9) end))
+	--hookfunction(LocalPlayer.Kick,(function() Notify("Anti Kick","DomainX has avoided the game kicking you locally",4400697855) wait(9e9) end))
 end
 
 function StartAntiIdle()
@@ -3531,10 +3531,10 @@ end
 
 function LoadThemes()
 	if DebugMode then
-		warn("Kaos - Loading Themes")
+		warn("DomainX - Loading Themes")
 	end
-	Toast("Loading "..Theme.Name.." theme to Kaos")
-	for _, obj in ipairs(Kaos:GetDescendants()) do
+	Toast("Loading "..Theme.Name.." theme to DomainX")
+	for _, obj in ipairs(Domain:GetDescendants()) do
 		if obj.ClassName == "TextButton" or obj.ClassName == "TextLabel" or obj.ClassName == "TextBox" then
 			if Theme.Font ~= "" then
 				obj.Font = Theme.Font
@@ -3678,7 +3678,7 @@ function ContinueBoot()
 	if DebugMode then
 		warn("Kaos - Continuing Boot Process (begun)")
 	end
-	Kaos.Premium.Robux.Text = "or 2899 Robux"
+	Domain.Premium.Robux.Text = "or 2899 Robux"
 	FirstCheck()
 	VersionCheck()
 	if DebugMode then
@@ -3693,7 +3693,7 @@ function ContinueBoot()
 			warn("Kaos - Disabled ScriptContext Errors")
 		end
 	end
-	for _, ob in ipairs(Kaos:GetDescendants()) do
+	for _, ob in ipairs(Domain:GetDescendants()) do
 		if ob.ClassName == "Frame" or ob.ClassName == "TextButton" or ob.ClassName == "TextLabel" or ob.ClassName == "ImageLabel" or ob.ClassName == "ImageButton" or ob.ClassName == "TextBox" then
 			ob.ZIndex = ob.ZIndex + 10
 		end
@@ -3718,22 +3718,22 @@ function ContinueBoot()
 	end
 	StartAntiKick()
 	StartAntiIdle()
-	Kaos.Home.Data.data.Players.Text = "Players: <b>"..tostring(#game.Players:GetChildren()).."/"..tostring(game.Players.MaxPlayers).."</b>"
-	Kaos.Main.Position = UDim2.new(0.5, 0, 1.15, 0)
-	Kaos.Home.Discord.Info.RichText = true
-	Kaos.Main.Time.Text = tostring(GetDate():format("#h:#m"))
-	Kaos.Home.Music.Toggle.ImageRectOffset = Vector2.new(764,244)
-	Kaos.Playerlist.List.Template.Visible = false
-	Kaos.Home.Music.RecentlyPlayed.Visible = false
-	Kaos.Notifications.Template.Visible = false
-	Kaos.DisplayOrder = 100
-	Kaos.Home.Discord.Info.RichText = true
-	Kaos.Notifications.Template.Content.RichText = false
-	Kaos.Home.User.BigTitle.Text = LocalPlayer.DisplayName
-	Kaos.Home.User.Title.Text = LocalPlayer.Name
-	Kaos.Home.Keybind.KeyBG.KeyBox.Text = tostring(Keybind)
-	Kaos.Main.KeybindNote.Visible = true
-	Kaos.Main.Visible = true
+	Domain.Home.Data.data.Players.Text = "Players: <b>"..tostring(#game.Players:GetChildren()).."/"..tostring(game.Players.MaxPlayers).."</b>"
+	Domain.Main.Position = UDim2.new(0.5, 0, 1.15, 0)
+	Domain.Home.Discord.Info.RichText = true
+	Domain.Main.Time.Text = tostring(GetDate():format("#h:#m"))
+	Domain.Home.Music.Toggle.ImageRectOffset = Vector2.new(764,244)
+	Domain.Playerlist.List.Template.Visible = false
+	Domain.Home.Music.RecentlyPlayed.Visible = false
+	Domain.Notifications.Template.Visible = false
+	Domain.DisplayOrder = 100
+	Domain.Home.Discord.Info.RichText = true
+	Domain.Notifications.Template.Content.RichText = false
+	Domain.Home.User.BigTitle.Text = LocalPlayer.DisplayName
+	Domain.Home.User.Title.Text = LocalPlayer.Name
+	Domain.Home.Keybind.KeyBG.KeyBox.Text = tostring(Keybind)
+	Domain.Main.KeybindNote.Visible = true
+	Domain.Main.Visible = true
 
 	if DebugMode then
 		warn("Kaos - Started AntiKick and AntiIdle")
@@ -3749,7 +3749,7 @@ function ContinueBoot()
 
 			end
 		end
-		Kaos.Home.User.Avatar.Image = game:GetService("Players"):GetUserThumbnailAsync(LocalPlayer.UserId,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size420x420)
+		Domain.Home.User.Avatar.Image = game:GetService("Players"):GetUserThumbnailAsync(LocalPlayer.UserId,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size420x420)
 		if DebugMode then
 			warn("Kaos - Finished Player Data")
 		end	
@@ -3764,7 +3764,7 @@ function ContinueBoot()
 			warn("Kaos - First time or not autoexec")
 		end
 		local sound = Instance.new("Sound")
-		sound.Parent = Kaos
+		sound.Parent = Domain
 		sound.SoundId = "rbxassetid://"..6958727243
 		sound.Name = "boot"
 		if DebugMode then
@@ -3796,7 +3796,7 @@ function ContinueBoot()
 			tween:Play()
 		end
 		wait(0.6)
-		Kaos.Main.KeybindNote.Visible = false
+		Domain.Main.KeybindNote.Visible = false
 		if DebugMode then
 			warn("Kaos - Keybind Note false")
 		end
@@ -3813,10 +3813,10 @@ function ContinueBoot()
 			warn("Kaos - Autoexec")
 		end
 		wait(1)
-		Kaos.Main.KeybindNote.Text = "tap "..Keybind.." to start"
-		Kaos.Main.Position = UDim2.new(0.5,0,1.05,0)
-		Kaos.Main.KeybindNote.Visible = true
-		Kaos.Main.Visible = true
+		Domain.Main.KeybindNote.Text = "tap "..Keybind.." to start"
+		Domain.Main.Position = UDim2.new(0.5,0,1.05,0)
+		Domain.Main.KeybindNote.Visible = true
+		Domain.Main.Visible = true
 	end
 	if PremiumToastRequired == true then
 		Toast("Successfully upgraded license","GothamBlack")
@@ -3835,25 +3835,25 @@ function ContinueBoot()
 		if isfile("Kaos Wallpaper.txt") then
 			if isfile(readfile("Kaos Wallpaper.txt")) then
 				if getsynasset then
-					Kaos.Home.Wallpaper.Visible = true
-					Kaos.Home.Wallpaper.Image = getsynasset(readfile("Kaos Wallpaper.txt"))
-					Kaos.Home.WallpaperManage.WBG.WBox.Text = readfile("Kaos Wallpaper.txt")
+					Domain.Home.Wallpaper.Visible = true
+					Domain.Home.Wallpaper.Image = getsynasset(readfile("Kaos Wallpaper.txt"))
+					Domain.Home.WallpaperManage.WBG.WBox.Text = readfile("Kaos Wallpaper.txt")
 				else
-					Kaos.Home.Wallpaper.Visible = true
-					Kaos.Home.Wallpaper.Image = getcustomasset(readfile("Kaos Wallpaper.txt"))
-					Kaos.Home.WallpaperManage.WBG.WBox.Text = readfile("Kaos Wallpaper.txt")
+					Domain.Home.Wallpaper.Visible = true
+					Domain.Home.Wallpaper.Image = getcustomasset(readfile("Kaos Wallpaper.txt"))
+					Domain.Home.WallpaperManage.WBG.WBox.Text = readfile("Kaos Wallpaper.txt")
 				end
 			end
 		end
 	end
 
 	-- Sorts out script order
-	Kaos.Scripts.List.Template.Size = UDim2.new(0.979, 0,0.055, 0)
-	Kaos.Scripts.List.Template.Visible = false
+	Domain.Scripts.List.Template.Size = UDim2.new(0.979, 0,0.055, 0)
+	Domain.Scripts.List.Template.Visible = false
 	local newpos = 1
 	for _, Script in pairs(UniversalScripts) do
-		local new = Kaos.Scripts.List.Template:Clone()
-		new.Parent = Kaos.Scripts.List
+		local new = Domain.Scripts.List.Template:Clone()
+		new.Parent = Domain.Scripts.List
 		new.Name = Script.Name
 		new.Visible = true
 		new.BackgroundColor3 = Script.Colour
@@ -3947,17 +3947,17 @@ end
 
 
 
-function BootKaos()
+function BootDomainX()
 	if DebugMode then
 		warn("Kaos - Beginning Boot Process")
 	end
-	Kaos.Main.Visible = true
-	Kaos.Main.Position = UDim2.new(0.5, 0, 1.05, 0)
-	Kaos.Main.KeybindNote.Position = UDim2.new(0.5,0,-1.303,0)
-	Kaos.Main.KeybindNote.Text = "Loading Kaos"
-	Kaos.Main.KeybindNote.Visible = true
-	Kaos.Main.Buttons.ModulesButton.Visible = false
-	Kaos.Main.KeybindNote.TextTransparency = 0.4
+	Domain.Main.Visible = true
+	Domain.Main.Position = UDim2.new(0.5, 0, 1.05, 0)
+	Domain.Main.KeybindNote.Position = UDim2.new(0.5,0,-1.303,0)
+	Domain.Main.KeybindNote.Text = "Loading Kaos"
+	Domain.Main.KeybindNote.Visible = true
+	Domain.Main.Buttons.ModulesButton.Visible = false
+	Domain.Main.KeybindNote.TextTransparency = 0.4
 	if Beta then
 		if not UserIsPremium then
 			return
@@ -3971,10 +3971,10 @@ function BootKaos()
 	olduidestroy()
 	UpdateExecutor()
 
-	if not KaosEnabled then
+	if not DomainEnabled then
 		Notify("Not Enabled","Kaos is currently disabled",4384402990)
 		wait(NotificationDuration+3)
-		Kaos:Destroy()
+		Domain:Destroy()
 		return
 	end
 
@@ -3983,7 +3983,7 @@ function BootKaos()
 	end
 	ContinueBoot()
 
-	KaosLoaded = true
+	DomainXLoaded = true
 end
 
 
@@ -3992,13 +3992,13 @@ end
 
 -- Main functionality of core buttons
 
-Kaos.Main.Buttons.HomeButton.Interact.MouseButton1Click:Connect(function()
+Domain.Main.Buttons.HomeButton.Interact.MouseButton1Click:Connect(function()
 	local transitionInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Buttons.HomeButton, transitionInfo, {Size = UDim2.new(0.081, 0,0.559, 0)})
+	local tween = TweenService:Create(Domain.Main.Buttons.HomeButton, transitionInfo, {Size = UDim2.new(0.081, 0,0.559, 0)})
 	tween:Play()
 	wait(0.2)
 	local transitionInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Buttons.HomeButton, transitionInfo, {Size = UDim2.new(0.093, 0,0.647, 0)})
+	local tween = TweenService:Create(Domain.Main.Buttons.HomeButton, transitionInfo, {Size = UDim2.new(0.093, 0,0.647, 0)})
 	tween:Play()
 	if homeopen then
 		CloseHome()
@@ -4007,20 +4007,20 @@ Kaos.Main.Buttons.HomeButton.Interact.MouseButton1Click:Connect(function()
 	end
 end)
 
-Kaos.Home.Discord.Copyframe.Copy.MouseButton1Click:Connect(function()
+Domain.Home.Discord.Copyframe.Copy.MouseButton1Click:Connect(function()
 	CopyDiscord()
-	Kaos.Home.Discord.Info.Text = "Successfully copied the discord invite link to your clipboard."
+	Domain.Home.Discord.Info.Text = "Successfully copied the discord invite link to your clipboard."
 	wait(3)
-	Kaos.Home.Discord.Info.Text = "We'd love to have you join our Official Discord Server! Tap the button to <b>copy</b> the link to your <b>clipboard</b>"
+	Domain.Home.Discord.Info.Text = "We'd love to have you join our Official Discord Server! Tap the button to <b>copy</b> the link to your <b>clipboard</b>"
 end)
 
-Kaos.Main.Buttons.PlayerButton.Interact.MouseButton1Click:Connect(function()
+Domain.Main.Buttons.PlayerButton.Interact.MouseButton1Click:Connect(function()
 	local transitionInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Buttons.PlayerButton, transitionInfo, {Size = UDim2.new(0.081, 0,0.559, 0)})
+	local tween = TweenService:Create(Domain.Main.Buttons.PlayerButton, transitionInfo, {Size = UDim2.new(0.081, 0,0.559, 0)})
 	tween:Play()
 	wait(0.2)
 	local transitionInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Buttons.PlayerButton, transitionInfo, {Size = UDim2.new(0.093, 0,0.647, 0)})
+	local tween = TweenService:Create(Domain.Main.Buttons.PlayerButton, transitionInfo, {Size = UDim2.new(0.093, 0,0.647, 0)})
 	tween:Play()
 	if not db then
 		if plrconopen then
@@ -4031,13 +4031,13 @@ Kaos.Main.Buttons.PlayerButton.Interact.MouseButton1Click:Connect(function()
 	end
 end)
 
-Kaos.Main.Buttons.PlayersButton.Interact.MouseButton1Click:Connect(function()
+Domain.Main.Buttons.PlayersButton.Interact.MouseButton1Click:Connect(function()
 	local transitionInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Buttons.PlayersButton, transitionInfo, {Size = UDim2.new(0.081, 0,0.559, 0)})
+	local tween = TweenService:Create(Domain.Main.Buttons.PlayersButton, transitionInfo, {Size = UDim2.new(0.081, 0,0.559, 0)})
 	tween:Play()
 	wait(0.2)
 	local transitionInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Buttons.PlayersButton, transitionInfo, {Size = UDim2.new(0.093, 0,0.647, 0)})
+	local tween = TweenService:Create(Domain.Main.Buttons.PlayersButton, transitionInfo, {Size = UDim2.new(0.093, 0,0.647, 0)})
 	tween:Play()
 	if not db and DMNReady then
 		if plrlistopen then
@@ -4048,13 +4048,13 @@ Kaos.Main.Buttons.PlayersButton.Interact.MouseButton1Click:Connect(function()
 	end
 end)
 
-Kaos.Main.Buttons.JoinCodesButton.Interact.MouseButton1Click:Connect(function()
+Domain.Main.Buttons.JoinCodesButton.Interact.MouseButton1Click:Connect(function()
 	local transitionInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Buttons.JoinCodesButton, transitionInfo, {Size = UDim2.new(0.081, 0,0.559, 0)})
+	local tween = TweenService:Create(Domain.Main.Buttons.JoinCodesButton, transitionInfo, {Size = UDim2.new(0.081, 0,0.559, 0)})
 	tween:Play()
 	wait(0.2)
 	local transitionInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Buttons.JoinCodesButton, transitionInfo, {Size = UDim2.new(0.093, 0,0.647, 0)})
+	local tween = TweenService:Create(Domain.Main.Buttons.JoinCodesButton, transitionInfo, {Size = UDim2.new(0.093, 0,0.647, 0)})
 	tween:Play()
 	if not db and DMNReady then
 		if jcopen then
@@ -4065,13 +4065,13 @@ Kaos.Main.Buttons.JoinCodesButton.Interact.MouseButton1Click:Connect(function()
 	end
 end)
 
-Kaos.Main.Buttons.ScriptsButton.Interact.MouseButton1Click:Connect(function()
+Domain.Main.Buttons.ScriptsButton.Interact.MouseButton1Click:Connect(function()
 	local transitionInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Buttons.ScriptsButton, transitionInfo, {Size = UDim2.new(0.081, 0,0.559, 0)})
+	local tween = TweenService:Create(Domain.Main.Buttons.ScriptsButton, transitionInfo, {Size = UDim2.new(0.081, 0,0.559, 0)})
 	tween:Play()
 	wait(0.2)
 	local transitionInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Main.Buttons.ScriptsButton, transitionInfo, {Size = UDim2.new(0.093, 0,0.647, 0)})
+	local tween = TweenService:Create(Domain.Main.Buttons.ScriptsButton, transitionInfo, {Size = UDim2.new(0.093, 0,0.647, 0)})
 	tween:Play()
 	if not db and DMNReady then
 		if scriptsopen then
@@ -4084,7 +4084,7 @@ end)
 
 function Rejoin()
 	if #game.Players:GetPlayers() <= 1 then
-		LocalPlayer:Kick("\nKaos - Rejoining Server")
+		LocalPlayer:Kick("\nDMNX - Rejoining Server")
 		wait()
 		game:GetService('TeleportService'):Teleport(game.PlaceId, LocalPlayer)
 	else
@@ -4097,7 +4097,7 @@ end
 function Invisible()
 	if invisRunning then return end
 	invisRunning = true
-	-- Full credit to zzz @poohkyo
+	-- Full credit to zzz @kyograve
 	local Player = LocalPlayer
 	repeat wait(.1) until Player.Character
 	local Character = Player.Character
@@ -4227,125 +4227,125 @@ end
 
 
 
-Kaos.Player.Noclip.Interact.MouseButton1Click:Connect(function()
+Domain.Player.Noclip.Interact.MouseButton1Click:Connect(function()
 	if Clip then
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Noclip, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
+		local tween = TweenService:Create(Domain.Player.Noclip, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
 		tween:Play()
 		NoClip()
 	else
 		if ThemeEnabled then
 			local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Player.Noclip, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
+			local tween = TweenService:Create(Domain.Player.Noclip, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
 			tween:Play()
 		else
 			local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Player.Noclip, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62, 62, 62)})
+			local tween = TweenService:Create(Domain.Player.Noclip, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62, 62, 62)})
 			tween:Play()
 		end
 
 		ReClip()
 	end
 end)
-Kaos.Player.Invisible.Interact.MouseButton1Click:Connect(Invisible)
-Kaos.Player.God.Interact.MouseButton1Click:Connect(God)
-Kaos.Player.Respawn.Interact.MouseButton1Click:Connect(function()
+Domain.Player.Invisible.Interact.MouseButton1Click:Connect(Invisible)
+Domain.Player.God.Interact.MouseButton1Click:Connect(God)
+Domain.Player.Respawn.Interact.MouseButton1Click:Connect(function()
 	Respawn()
 	local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player.Respawn, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
+	local tween = TweenService:Create(Domain.Player.Respawn, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
 	tween:Play()
 
 end)
 
-Kaos.Player.Rejoin.Interact.MouseButton1Click:Connect(Rejoin)
+Domain.Player.Rejoin.Interact.MouseButton1Click:Connect(Rejoin)
 
-Kaos.Player.Fly.Interact.MouseButton1Click:Connect(function()
+Domain.Player.Fly.Interact.MouseButton1Click:Connect(function()
 	if Flying then
 		if ThemeEnabled then
 			local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Player.Fly, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
+			local tween = TweenService:Create(Domain.Player.Fly, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
 			tween:Play()
 		else
 			local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-			local tween = TweenService:Create(Kaos.Player.Fly, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62, 62, 62)})
+			local tween = TweenService:Create(Domain.Player.Fly, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62, 62, 62)})
 			tween:Play()
 		end
-		Kaos.Player.Fly.Popup.Title.Text = "Fly"
-		Kaos.Player.Fly.Interact.Image = "rbxassetid://3926305904"
-		Kaos.Player.Fly.Interact.ImageRectOffset = Vector2.new(124,364)
+		Domain.Player.Fly.Popup.Title.Text = "Fly"
+		Domain.Player.Fly.Interact.Image = "rbxassetid://3926305904"
+		Domain.Player.Fly.Interact.ImageRectOffset = Vector2.new(124,364)
 		Toast("Disabled flight")
 		Unfly()
 	else 
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Fly, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
+		local tween = TweenService:Create(Domain.Player.Fly, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
 		tween:Play()
 
-		Kaos.Player.Fly.Popup.Title.Text = "Unfly"
-		Kaos.Player.Fly.Interact.Image = "rbxassetid://3926307971"
-		Kaos.Player.Fly.Interact.ImageRectOffset = Vector2.new(884,324)
+		Domain.Player.Fly.Popup.Title.Text = "Unfly"
+		Domain.Player.Fly.Interact.Image = "rbxassetid://3926307971"
+		Domain.Player.Fly.Interact.ImageRectOffset = Vector2.new(884,324)
 		Toast("Enabled flight")
 		Fly()
 	end
 end)
 
 function PlaySound()
-	if Kaos:FindFirstChildWhichIsA("Sound") then
-		Kaos:FindFirstChildWhichIsA("Sound"):Destroy()
+	if Domain:FindFirstChildWhichIsA("Sound") then
+		Domain:FindFirstChildWhichIsA("Sound"):Destroy()
 	end
-	Kaos.Home.Music.PlayingTitle.Text = "Now Playing"
+	Domain.Home.Music.PlayingTitle.Text = "Now Playing"
 	MusicPlaying = true
-	local MusicSound = Instance.new("Sound",Kaos)
+	local MusicSound = Instance.new("Sound",Domain)
 	MusicSound.Volume = 1
-	MusicSound.SoundId = "rbxassetid://"..Kaos.Home.Music.ID.IDFrame.IDBox.Text
-	CurrentMusicInfo = game:GetService("MarketplaceService"):GetProductInfo(tonumber(Kaos.Home.Music.ID.IDFrame.IDBox.Text))
-	Kaos.Home.Music.ID.IDFrame.IDBox.Text = ""
+	MusicSound.SoundId = "rbxassetid://"..Domain.Home.Music.ID.IDFrame.IDBox.Text
+	CurrentMusicInfo = game:GetService("MarketplaceService"):GetProductInfo(tonumber(Domain.Home.Music.ID.IDFrame.IDBox.Text))
+	Domain.Home.Music.ID.IDFrame.IDBox.Text = ""
 	MusicSound.TimePosition = 0
 	MusicSound.Looped = true
 	MusicSound:Play()
 	if CurrentMusicInfo then
-		Kaos.Home.Music.Playing.Text = CurrentMusicInfo.Name
+		Domain.Home.Music.Playing.Text = CurrentMusicInfo.Name
 	else
-		Kaos.Home.Music.Playing.Text = "Unknown"
+		Domain.Home.Music.Playing.Text = "Unknown"
 	end
-	Kaos.Home.Music.Toggle.ImageRectOffset = Vector2.new(804,124)
+	Domain.Home.Music.Toggle.ImageRectOffset = Vector2.new(804,124)
 	Toast("Playing music using Sound")
 end
 
-Kaos.Home.Music.Toggle.MouseButton1Click:Connect(function()
+Domain.Home.Music.Toggle.MouseButton1Click:Connect(function()
 	if MusicPlaying then
 		MusicPlaying = false
-		if not Kaos:FindFirstChildWhichIsA("Sound") then
+		if not Domain:FindFirstChildWhichIsA("Sound") then
 			Toast("UI was unable to locate any Sound to stop")
-			Kaos.Home.Music.Toggle.ImageRectOffset = Vector2.new(764,244)
+			Domain.Home.Music.Toggle.ImageRectOffset = Vector2.new(764,244)
 		else
-			Kaos.Home.Music.Toggle.ImageRectOffset = Vector2.new(764,244)
-			Kaos:FindFirstChildWhichIsA("Sound"):Pause()
+			Domain.Home.Music.Toggle.ImageRectOffset = Vector2.new(764,244)
+			Domain:FindFirstChildWhichIsA("Sound"):Pause()
 			Toast("Stopped Sound")
 		end
 	elseif not MusicPlaying then
-		if not Kaos:FindFirstChildWhichIsA("Sound") then
+		if not Domain:FindFirstChildWhichIsA("Sound") then
 			Toast("Please start a sound using the Asset ID bar above")
 		else
 			MusicPlaying = true
-			Kaos.Home.Music.Toggle.ImageRectOffset = Vector2.new(804,124)
-			Kaos:FindFirstChildWhichIsA("Sound"):Resume()
+			Domain.Home.Music.Toggle.ImageRectOffset = Vector2.new(804,124)
+			Domain:FindFirstChildWhichIsA("Sound"):Resume()
 			Toast("Resumed sound")
 		end
 	end
 end)
 
-Kaos.Home.Music.ID.IDFrame.IDBox.FocusLost:Connect(function()
+Domain.Home.Music.ID.IDFrame.IDBox.FocusLost:Connect(function()
 	PlaySound()
 end)
 
-Kaos.Home.WallpaperManage.WBG.WBox.FocusLost:Connect(function()
-	ChangeWallpaper(Kaos.Home.WallpaperManage.WBG.WBox.Text)
+Domain.Home.WallpaperManage.WBG.WBox.FocusLost:Connect(function()
+	ChangeWallpaper(Domain.Home.WallpaperManage.WBG.WBox.Text)
 end)
 local CheckingForKey = false
-Kaos.Home.Keybind.KeyBG.KeyBox.Focused:Connect(function()
+Domain.Home.Keybind.KeyBG.KeyBox.Focused:Connect(function()
 	CheckingForKey = true
 end)
-Kaos.Home.Keybind.KeyBG.KeyBox.FocusLost:Connect(function()
+Domain.Home.Keybind.KeyBG.KeyBox.FocusLost:Connect(function()
 	CheckingForKey = false
 end)
 
@@ -4353,8 +4353,8 @@ function ChangeKeybind(Key)
 	local SplitMessage = string.split(tostring(Key), ".")
 	local NewKeyNoEnum = SplitMessage[3]
 	Keybind = tostring(NewKeyNoEnum)
-	Kaos.Home.Keybind.KeyBG.KeyBox.Text = Keybind
-	Kaos.Home.Keybind.KeyBG.KeyBox:ReleaseFocus()
+	Domain.Home.Keybind.KeyBG.KeyBox.Text = Keybind
+	Domain.Home.Keybind.KeyBG.KeyBox:ReleaseFocus()
 	if CheckWritefile() then
 		writefile("Kaos Keybind.txt",tostring(NewKeyNoEnum))
 		Toast("Successfully changed Keybind to "..tostring(NewKeyNoEnum))
@@ -4393,7 +4393,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, processed
 end)
 
 local RunService = game:GetService("RunService")
-local FpsLabel = Kaos.Home.FPS.FPSText
+local FpsLabel = Domain.Home.FPS.FPSText
 
 local TimeFunction = RunService:IsRunning() and time or os.clock
 
@@ -4401,10 +4401,10 @@ local LastIteration, Start
 local FrameUpdateTable = {}
 
 game.Players.PlayerAdded:Connect(function(Player)
-	if Kaos:FindFirstChild("Home") == false then
+	if Domain:FindFirstChild("Home") == false then
 		return
 	end
-	Kaos.Home.Data.data.Players.Text = "Players: <b>"..tostring(#game.Players:GetChildren()).."/"..tostring(game.Players.MaxPlayers).."</b>"
+	Domain.Home.Data.data.Players.Text = "Players: <b>"..tostring(#game.Players:GetChildren()).."/"..tostring(game.Players.MaxPlayers).."</b>"
 	if Player.Name == "poohkyo" then
 		Toast("The developer of Kaos, Kyo, has joined your server")
 	end
@@ -4416,9 +4416,9 @@ end)
 
 
 function RemovePlayer(Player)
-	if Kaos and Kaos:FindFirstChild("Playerlist") and Kaos.Playerlist:FindFirstChild("List") then
-		if Kaos.Playerlist.List:FindFirstChild(Player.Name) then
-			Kaos.Playerlist.List:FindFirstChild(Player.Name):Destroy()
+	if Domain and Domain:FindFirstChild("Playerlist") and Domain.Playerlist:FindFirstChild("List") then
+		if Domain.Playerlist.List:FindFirstChild(Player.Name) then
+			Domain.Playerlist.List:FindFirstChild(Player.Name):Destroy()
 		end
 	end
 end
@@ -4429,9 +4429,9 @@ end)
 
 local mouse = game:GetService('Players').LocalPlayer:GetMouse()
 -- Walkspeed
-local Walkslider = Kaos.Player.Speed.Action
-local Walklabel = Kaos.Player.Speed.Title
-local Walkbar = Kaos.Player.Speed.Action.Amount
+local Walkslider = Domain.Player.Speed.Action
+local Walklabel = Domain.Player.Speed.Title
+local Walkbar = Domain.Player.Speed.Action.Amount
 
 local uis = game:GetService('UserInputService')
 local Walkpadding = {}
@@ -4461,9 +4461,9 @@ Walkslider.MouseButton1Down:Connect(function()
 end)
 
 -- Jumppower
-local Jumpslider = Kaos.Player.Jumppower.Action
-local Jumplabel = Kaos.Player.Jumppower.Title
-local Jumpbar = Kaos.Player.Jumppower.Action.Amount
+local Jumpslider = Domain.Player.Jumppower.Action
+local Jumplabel = Domain.Player.Jumppower.Title
+local Jumpbar = Domain.Player.Jumppower.Action.Amount
 
 local uis = game:GetService('UserInputService')
 local Jumppadding = {}
@@ -4494,9 +4494,9 @@ Jumpslider.MouseButton1Down:Connect(function()
 end)
 
 -- FlySpeed
-local flyslider = Kaos.Player.FlySpeed.Action
-local flylabel = Kaos.Player.FlySpeed.Title
-local flybar = Kaos.Player.FlySpeed.Action.Amount
+local flyslider = Domain.Player.FlySpeed.Action
+local flylabel = Domain.Player.FlySpeed.Title
+local flybar = Domain.Player.FlySpeed.Action.Amount
 
 local uis = game:GetService('UserInputService')
 local flypadding = {}
@@ -4533,15 +4533,15 @@ uis.InputEnded:Connect(function(input)
 	end
 end)
 
-Kaos.JoinCodes.CreateJC.MouseButton1Click:Connect(function()
+Domain.JoinCodes.CreateJC.MouseButton1Click:Connect(function()
 	if UserIsPro then
 		Toast("Creating Join Code..")
 		local result = game:HttpGet("https://shlex.dev/api/joincodes/createcode.php?gid=".. game.PlaceId ..":".. game.JobId)
-		Kaos.CreateCode.Visible = true
+		Domain.CreateCode.Visible = true
 		if result ~= "fail" then
-			Kaos.CreateCode.GeneratedCode.TextEditable = false
-			Kaos.CreateCode.GeneratedCode.ClearTextOnFocus = false
-			Kaos.CreateCode.GeneratedCode.Text = result
+			Domain.CreateCode.GeneratedCode.TextEditable = false
+			Domain.CreateCode.GeneratedCode.ClearTextOnFocus = false
+			Domain.CreateCode.GeneratedCode.Text = result
 			Toast("Copied '"..result.."', your join code, to clipboard")
 			if setclipboard then
 				setclipboard(result)
@@ -4555,9 +4555,9 @@ Kaos.JoinCodes.CreateJC.MouseButton1Click:Connect(function()
 	end
 end)
 
-Kaos.JoinCodes.CodeBox.JCText.FocusLost:Connect(function()
+Domain.JoinCodes.CodeBox.JCText.FocusLost:Connect(function()
 
-	local code = Kaos.JoinCodes.CodeBox.JCText.Text
+	local code = Domain.JoinCodes.CodeBox.JCText.Text
 
 	local result = game:HttpGet("https://shlex.dev/api/joincodes/usecode.php?code=".. code);
 
@@ -4568,7 +4568,7 @@ Kaos.JoinCodes.CodeBox.JCText.FocusLost:Connect(function()
 		local serverId = decoded["ServerId"]
 		for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
 			if v.id == serverId then
-				Kaos.JoinCodes.PlrOnlineText.Text = v.playing.. " players in server"
+				Domain.JoinCodes.PlrOnlineText.Text = v.playing.. " players in server"
 			end
 		end	
 	else
@@ -4576,8 +4576,8 @@ Kaos.JoinCodes.CodeBox.JCText.FocusLost:Connect(function()
 	end	
 end)
 
-Kaos.JoinCodes.CodeBox.SendJC.MouseButton1Click:Connect(function()
-	local code = Kaos.JoinCodes.CodeBox.JCText.Text
+Domain.JoinCodes.CodeBox.SendJC.MouseButton1Click:Connect(function()
+	local code = Domain.JoinCodes.CodeBox.JCText.Text
 
 	local result = game:HttpGet("https://shlex.dev/api/joincodes/usecode.php?code=".. code);
 
@@ -4610,30 +4610,30 @@ mouse.Move:Connect(function()
 	end
 end)
 
-Kaos.Home.ControlPanel.Buttons.Power.Interact.MouseButton1Click:Connect(function()
+Domain.Home.ControlPanel.Buttons.Power.Interact.MouseButton1Click:Connect(function()
 	CloseHome()
 	wait(0.5)
-	for _, ins in ipairs(Kaos:GetChildren()) do
+	for _, ins in ipairs(Domain:GetChildren()) do
 		if ins.Name ~= "byebye" and ins.Name ~= "byebye2" then
 			ins.Visible = false
 		end
 	end
-	Kaos.byebye.Visible = true
-	Kaos.byebye2.Visible = true
+	Domain.byebye.Visible = true
+	Domain.byebye2.Visible = true
 	wait(2)
-	Kaos.byebye.Visible = false
-	Kaos.byebye2.Visible = false
+	Domain.byebye.Visible = false
+	Domain.byebye2.Visible = false
 end)
 
-Kaos.JoinCodes.Close.MouseButton1Click:Connect(function()
+Domain.JoinCodes.Close.MouseButton1Click:Connect(function()
 	CloseJC()
 end)
-Kaos.CreateCode.Close.MouseButton1Click:Connect(function()
-	Kaos.CreateCode.Visible = false
+Domain.CreateCode.Close.MouseButton1Click:Connect(function()
+	Domain.CreateCode.Visible = false
 end)
 
 function LightMode()
-	for _, obj in ipairs(Kaos:GetDescendants()) do
+	for _, obj in ipairs(Domain:GetDescendants()) do
 		if obj.ClassName == "TextButton" or obj.ClassName == "TextLabel" or obj.ClassName == "Textbox" then
 			if obj.TextColor3 == Color3.fromRGB(238,238,238) then
 				obj.TextColor3 = Color3.fromRGB(39, 39, 39)
@@ -4676,7 +4676,7 @@ function LightMode()
 end
 
 function DarkMode()
-	for _, obj in ipairs(Kaos:GetDescendants()) do
+	for _, obj in ipairs(Domain:GetDescendants()) do
 		if obj.ClassName == "TextButton" or obj.ClassName == "TextLabel" or obj.ClassName == "Textbox" then
 			if obj.TextColor3 == Color3.fromRGB(39,39,39) then
 				obj.TextColor3 = Color3.fromRGB(238,238,238)
@@ -4722,7 +4722,7 @@ end
 
 
 local LightingMode = "Dark"
-Kaos.Home.ControlPanel.Buttons.Lighting.Interact.MouseButton1Click:Connect(function()
+Domain.Home.ControlPanel.Buttons.Lighting.Interact.MouseButton1Click:Connect(function()
 	if LightingMode == "Dark" then
 		LightMode()
 		LightingMode = "Light"
@@ -4732,39 +4732,39 @@ Kaos.Home.ControlPanel.Buttons.Lighting.Interact.MouseButton1Click:Connect(funct
 	end
 end)
 
-Kaos.Home.ControlPanel.Buttons.Notification.Interact.MouseButton1Click:Connect(function()
+Domain.Home.ControlPanel.Buttons.Notification.Interact.MouseButton1Click:Connect(function()
 	if NotificationsEnabled then
 		NotificationsEnabled = false
-		Kaos.Notification.Interact.ImageRectOffset = Vector2.new(244, 564)
+		Domain.Notification.Interact.ImageRectOffset = Vector2.new(244, 564)
 	else
-		Kaos.Notification.Interact.ImageRectOffset = Vector2.new(324, 924)
+		Domain.Notification.Interact.ImageRectOffset = Vector2.new(324, 924)
 		NotificationsEnabled = true
 	end
 end)
 
-Kaos.Player.Refresh.Interact.MouseButton1Click:Connect(function()
+Domain.Player.Refresh.Interact.MouseButton1Click:Connect(function()
 	local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(Kaos.Player.Refresh, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
+	local tween = TweenService:Create(Domain.Player.Refresh, transitionInfo, {BackgroundColor3 = Color3.fromRGB(0, 132, 70)})
 	tween:Play()
 	Refresh()
 end)
-Kaos.Player.Serverhop.Interact.MouseButton1Click:Connect(function()
+Domain.Player.Serverhop.Interact.MouseButton1Click:Connect(function()
 	Serverhop()
 end)
 LocalPlayer.CharacterAdded:Connect(function(Character)
 	if ThemeEnabled then
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Refresh, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
+		local tween = TweenService:Create(Domain.Player.Refresh, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Respawn, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
+		local tween = TweenService:Create(Domain.Player.Respawn, transitionInfo, {BackgroundColor3 = Theme.SecondaryColor})
 		tween:Play()
 	else
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Refresh, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62, 62, 62)})
+		local tween = TweenService:Create(Domain.Player.Refresh, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62, 62, 62)})
 		tween:Play()
 		local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local tween = TweenService:Create(Kaos.Player.Respawn, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62, 62, 62)})
+		local tween = TweenService:Create(Domain.Player.Respawn, transitionInfo, {BackgroundColor3 = Color3.fromRGB(62, 62, 62)})
 		tween:Play()
 	end
 	local transitionInfo = TweenInfo.new(1.5, Enum.EasingStyle.Quint)
@@ -4833,36 +4833,36 @@ end)
 function CheckTime()
 
 	if tonumber(GetDate():format("#h")) > 12 then
-		Kaos.Home.Welcome.Text = "Evening, "..LocalPlayer.DisplayName
+		Domain.Home.Welcome.Text = "Evening, "..LocalPlayer.DisplayName
 	else
-		Kaos.Home.Welcome.Text = "Morning, "..LocalPlayer.DisplayName
+		Domain.Home.Welcome.Text = "Morning, "..LocalPlayer.DisplayName
 	end
 	if tonumber(GetDate():format("#h")) == 0 then
-		Kaos.Home.WelcomeSub.Text = "Remember to smile!"
+		Domain.Home.WelcomeSub.Text = "Remember to smile!"
 	elseif tonumber(GetDate():format("#h")) >= 1 then
-		Kaos.Home.WelcomeSub.Text = "Up bright and early!"
+		Domain.Home.WelcomeSub.Text = "Up bright and early!"
 	end
 	if tonumber(GetDate():format("#h")) > 19 then
-		Kaos.Home.WelcomeSub.Text = "It's getting late.."
+		Domain.Home.WelcomeSub.Text = "It's getting late.."
 	end
 end
 
-BootKaos()
+BootDomainX()
 
 coroutine.wrap(function()
-	Kaos.Main.Time.Text = tostring(GetDate():format("#h:#m"))
+	Domain.Main.Time.Text = tostring(GetDate():format("#h:#m"))
 	wait(1)
-	if Kaos then
+	if Domain then
 		CheckTime()
 		local function updstuff()
 			timesince = timesince + 4
-			Kaos.Home.Data.data.Executor.Text = "Executor: <b>"..Client.."</b>"
-			Kaos.Home.Data.data.Version.Text = "Version: <b>v"..Release.."</b>"
-			Kaos.Home.Data.data.Time.Text = "Time Since Boot: <b>"..tostring(timesince).."s</b>"
+			Domain.Home.Data.data.Executor.Text = "Executor: <b>"..Client.."</b>"
+			Domain.Home.Data.data.Version.Text = "Version: <b>v"..Release.."</b>"
+			Domain.Home.Data.data.Time.Text = "Time Since Boot: <b>"..tostring(timesince).."s</b>"
 			if not CheckWritefile() then
-				Kaos.Home.Data.data.File.Text = "Data File: <b>Disabled</b>"
+				Domain.Home.Data.data.File.Text = "Data File: <b>Disabled</b>"
 			else
-				Kaos.Home.Data.data.File.Text = "Data File: <b>Loaded</b>"
+				Domain.Home.Data.data.File.Text = "Data File: <b>Loaded</b>"
 			end	
 
 
@@ -4898,10 +4898,10 @@ coroutine.wrap(function()
 				FriendsInGame = FriendsInGame + 1
 			end
 		end
-		Kaos.Home.Friends.All.FriendsAll.Text = tostring(FriendsInTotal).." users"
-		Kaos.Home.Friends.Offline.FriendsOffline.Text = tostring(FriendsInTotal - OnlineFriends).." users"
-		Kaos.Home.Friends.Online.FriendsOnline.Text = tostring(OnlineFriends).." users"
-		Kaos.Home.Friends.InServer.FriendsInGame.Text = tostring(FriendsInGame).." users"
+		Domain.Home.Friends.All.FriendsAll.Text = tostring(FriendsInTotal).." users"
+		Domain.Home.Friends.Offline.FriendsOffline.Text = tostring(FriendsInTotal - OnlineFriends).." users"
+		Domain.Home.Friends.Online.FriendsOnline.Text = tostring(OnlineFriends).." users"
+		Domain.Home.Friends.InServer.FriendsInGame.Text = tostring(FriendsInGame).." users"
 	end
 	pcall(CheckFriends)
 end)()
@@ -4916,10 +4916,10 @@ end)()
 
 while true do
 	wait(0.2)
-	if Kaos:FindFirstChild("Main") == false then
+	if Domain:FindFirstChild("Main") == false then
 		return
 	end
-	Kaos.Main.Time.Text = tostring(GetDate():format("#h:#m"))
+	Domain.Main.Time.Text = tostring(GetDate():format("#h:#m"))
 	FpsLabel.Text = tostring(UpdatedFPS)
-	Kaos.Main.Time.Text = tostring(GetDate():format("#h:#m"))
+	Domain.Main.Time.Text = tostring(GetDate():format("#h:#m"))
 end
